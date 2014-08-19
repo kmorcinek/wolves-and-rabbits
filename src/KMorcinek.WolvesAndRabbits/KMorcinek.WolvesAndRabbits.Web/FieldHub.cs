@@ -1,18 +1,44 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿using KMorcinek.WolvesAndRabbits.Configuration;
+using KMorcinek.WolvesAndRabbits.Utils;
+using Microsoft.AspNet.SignalR;
 
 namespace KMorcinek.WolvesAndRabbits.Web
 {
     public class FieldHub : Hub
     {
-        private static FieldManager fieldManager = new FieldManager().Create();
+        private static FieldManager fieldManager;
+        private static Fields fields;
 
-        public Cell[][] GetNextTurn()
+        public dynamic GetNextTurn()
         {
-            Cell[][] cellArrays = fieldManager.GetCellArrays();
+            dynamic data = new FieldsToTableTranslater().GetData(fields);
 
-            fieldManager = fieldManager.GetNextTurn(fieldManager);
+            fields = fieldManager.GetNextTurn(fields);
 
-            return cellArrays;
+            return data;
+        }
+
+        public dynamic Reset(FullConfiguration configuration)
+        {
+            configuration = configuration ?? FullConfiguration.CreateDefault();
+
+            fieldManager = new FieldManager(
+                new LettuceField(new SystemRandom(), configuration.LettuceFieldConfiguration),
+                new RabbitField(configuration.RabbitFieldConfiguration),
+                new WolfField(configuration.WolfFieldConfiguration));
+
+            fields = fieldManager.Create();
+
+            dynamic data = new FieldsToTableTranslater().GetData(fields);
+
+            fields = fieldManager.GetNextTurn(fields);
+
+            return data;
+        }
+
+        public dynamic GetConfiguration()
+        {
+            return FullConfiguration.CreateDefault();
         }
     }
 }

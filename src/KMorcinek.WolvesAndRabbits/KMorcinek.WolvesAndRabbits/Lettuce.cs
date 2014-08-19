@@ -3,7 +3,7 @@
 namespace KMorcinek.WolvesAndRabbits
 {
     [DebuggerDisplay("{Position}, Food:{Food}")]
-    public struct Lettuce
+    public struct Lettuce : IFood
     {
         private readonly Position position;
         private readonly double food;
@@ -22,6 +22,11 @@ namespace KMorcinek.WolvesAndRabbits
         {
             this.position = position;
             this.food = food;
+        }
+
+        public IFood Create(Position position, double food)
+        {
+            return new Lettuce(position, food);
         }
     }
 }

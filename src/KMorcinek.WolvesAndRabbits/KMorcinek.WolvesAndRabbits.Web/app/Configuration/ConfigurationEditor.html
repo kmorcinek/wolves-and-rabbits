@@ -1,0 +1,12 @@
+﻿<form name="form">
+    <fieldset class="form-group">
+        <legend>Rabbit</legend>
+        <div class="form-inline inline-group">
+            FoodConsumedForDinner: <input type="number" step="0.1" class="form-control" ng-model="configuration.RabbitFieldConfiguration.FoodConsumedForDinner" required>
+        </div>
+        <div class="form-inline inline-group">
+            BirthThreshold: <input type="number" step="0.1" class="form-control" ng-model="configuration.RabbitFieldConfiguration.BirthThreshold" required>
+        </div>
+    </fieldset>
+    <button ng-click="resetConfiguration()" class="btn btn-primary">Reset with new configuration</button>
+</form>

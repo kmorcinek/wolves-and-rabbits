@@ -1,6 +1,9 @@
-﻿namespace KMorcinek.WolvesAndRabbits
+﻿using System.Diagnostics;
+
+namespace KMorcinek.WolvesAndRabbits
 {
-    public class Rabbit
+    [DebuggerDisplay("{Position}, Food:{Food}")]
+    public struct Rabbit : IFood
     {
         private readonly Position position;
         private readonly double food;
@@ -19,6 +22,11 @@
         {
             this.position = position;
             this.food = food;
+        }
+
+        public IFood Create(Position position, double food)
+        {
+            return new Rabbit(position, food);
         }
     }
 }

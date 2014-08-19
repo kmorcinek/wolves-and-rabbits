@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using KMorcinek.WolvesAndRabbits.Configuration;
 using Xunit;
 using Xunit.Should;
 
@@ -7,7 +8,11 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 {
     public class RabbitFieldTests
     {
-        private readonly RabbitField rabbitField = new RabbitField();
+        private readonly RabbitField rabbitField = new RabbitField(new RabbitFieldConfiguration
+        {
+            FoodConsumedForDinner = 2,
+            BirthThreshold = 40,
+        });
 
         [Fact]
         void OneRabbitEatsOneLettuce()
@@ -16,10 +21,10 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
 
-            var fieldWithRabbit = rabbitField.RabbitMovesAndEatsOnlyBestLettuce(lettuces, rabbit);
+            var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
             fieldWithRabbit.Item1.First().Food.ShouldBe(3);
-            fieldWithRabbit.Item2.Food.ShouldBe(15);
+            fieldWithRabbit.Item2.Food.ShouldBe(17);
         }
 
         [Fact]
@@ -35,10 +40,10 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
 
-            var fieldWithRabbit = rabbitField.RabbitMovesAndEatsOnlyBestLettuce(lettuces, rabbit);
+            var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
             fieldWithRabbit.Item1.Single(p => p.Position == bestLettuce.Position).Food.ShouldBe(8);
-            fieldWithRabbit.Item2.Food.ShouldBe(15);
+            fieldWithRabbit.Item2.Food.ShouldBe(17);
         }
 
         [Fact]
@@ -54,7 +59,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             Rabbit rabbit = new Rabbit(new Position(-1, 0), 10);
 
-            var fieldWithRabbit = rabbitField.RabbitMovesAndEatsOnlyBestLettuce(lettuces, rabbit);
+            var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
             fieldWithRabbit.Item2.Position.ShouldBe(bestLettuce.Position);
         }
@@ -72,7 +77,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
 
-            var fieldWithRabbit = rabbitField.RabbitMovesAndEatsOnlyBestLettuce(lettuces, rabbit);
+            var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
             fieldWithRabbit.Item1.Count().ShouldBe(2);
             fieldWithRabbit.Item1.Single(p => p.Position == notBestLettuce.Position).Food.ShouldBe(notBestLettuce.Food);
         }
@@ -114,7 +119,8 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
 
-            Lettuce lettuce = rabbitField.ChooseBestLettuce(lettuces, rabbit);
+            Lettuce lettuce;
+            rabbitField.TryChooseBestPrey(lettuces, rabbit, out lettuce).ShouldBeTrue();
             lettuce.Position.ShouldBe(new Position(0, 1));
         }
 
@@ -130,7 +136,8 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
 
-            Lettuce lettuce = rabbitField.ChooseBestLettuce(lettuces, rabbit);
+            Lettuce lettuce;
+            rabbitField.TryChooseBestPrey(lettuces, rabbit, out lettuce).ShouldBeTrue();
 
             lettuce.Position.ShouldBe(new Position(-1, -1));
         }
@@ -142,7 +149,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
 
-            var fieldWithRabbit = rabbitField.RabbitMovesAndEatsOnlyBestLettuce(lettuces, rabbit);
+            var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
             fieldWithRabbit.Item1.First().Food.ShouldBe(0);
         }
@@ -154,9 +161,9 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             Rabbit rabbit = new Rabbit(new Position(0, 0), 0);
 
-            var fieldWithRabbit = rabbitField.RabbitMovesAndEatsOnlyBestLettuce(lettuces, rabbit);
+            var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
-            fieldWithRabbit.Item2.Food.ShouldBe(2.0 / 7 * 5);
+            fieldWithRabbit.Item2.Food.ShouldBe(2);
         }
 
         [Fact]
@@ -172,6 +179,36 @@ namespace KMorcinek.WolvesAndRabbits.Tests
             var fieldWithRabbit = rabbitField.GetNextTurn(lettuces, rabbits);
 
             fieldWithRabbit.Item2.Count().ShouldBe(0);
+        }
+
+        [Fact]
+        void GivenALotOfFood_NewRabbitIsBorn()
+        {
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 20) });
+
+            List<Rabbit> rabbits = new List<Rabbit>(new[]
+            {
+                new Rabbit(new Position(0, 0), 42),
+            });
+
+            var fieldWithRabbit = rabbitField.GetNextTurn(lettuces, rabbits);
+
+            fieldWithRabbit.Item2.Count().ShouldBe(2);
+        }
+
+        [Fact]
+        void EveryTurnRabitUsesSomeFood()
+        {
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 0) });
+
+            List<Rabbit> rabbits = new List<Rabbit>(new[]
+            {
+                new Rabbit(new Position(0, 0), 10),
+            });
+
+            var fieldWithRabbit = rabbitField.GetNextTurn(lettuces, rabbits);
+
+            fieldWithRabbit.Item2.First().Food.ShouldBe(8);
         }
     }
 }

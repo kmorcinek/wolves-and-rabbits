@@ -6,87 +6,103 @@ namespace KMorcinek.WolvesAndRabbits
 {
     public class FieldManager
     {
-        private IEnumerable<Lettuce> lettuces;
-        private IEnumerable<Rabbit> rabbits;
-        private int size;
+        readonly LettuceField lettuceField;
+        readonly RabbitField rabbitField;
+        readonly WolfField wolfField;
 
-        readonly LettuceField lettuceField = new LettuceField();
-        readonly RabbitField rabbitField = new RabbitField();
-
-        public FieldManager Create()
+        public FieldManager(LettuceField lettuceField, RabbitField rabbitField, WolfField wolfField)
         {
-            int size = 3;
-            return new FieldManager
+            this.lettuceField = lettuceField;
+            this.wolfField = wolfField;
+            this.rabbitField = rabbitField;
+        }
+
+        public Fields Create()
+        {
+            int size = 10;
+            return new Fields
             {
-                size = size,
-                lettuces = lettuceField.Create(size),
-                rabbits = new List<Rabbit>(new[]
+                Size = size,
+                IterationCount = 0,
+                Lettuces = lettuceField.Create(size),
+                Rabbits = new List<Rabbit>(new[]
                 {
                     new Rabbit(new Position(0, 0), 10),
+                    new Rabbit(new Position(0, 0), 10),
+                    new Rabbit(new Position(0, 0), 10),
+                    new Rabbit(new Position(0, 0), 10),
+                    new Rabbit(new Position(0, 0), 10),
                     new Rabbit(new Position(0, 0), 9),
+                    new Rabbit(new Position(-2, -3), 9),
+                    new Rabbit(new Position(-1, -4), 9),
+                    new Rabbit(new Position(-3, -5), 9),
+                    new Rabbit(new Position(-4, -3), 9),
+                    new Rabbit(new Position(-4, -3), 9),
+                    new Rabbit(new Position(-4, -3), 9),
+                    new Rabbit(new Position(-4, -3), 9),
+                    new Rabbit(new Position(-4, -3), 9),
+                    new Rabbit(new Position(-4, -3), 9),
+                    new Rabbit(new Position(-4, -3), 9),
+                    new Rabbit(new Position(-4, -3), 9),
+                    new Rabbit(new Position(-3, -3), 9),
+                    new Rabbit(new Position(3, -3), 9),
+                    new Rabbit(new Position(5, -3), 9),
+                    new Rabbit(new Position(3, -5), 9),
+                    new Rabbit(new Position(3, -5), 9),
+                    new Rabbit(new Position(3, -5), 9),
+                    new Rabbit(new Position(3, -5), 9),
+                    new Rabbit(new Position(3, -5), 9),
+                    new Rabbit(new Position(3, -5), 9),
+                    new Rabbit(new Position(3, -5), 9),
+                    new Rabbit(new Position(3, -5), 9),
+                    new Rabbit(new Position(3, -5), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
+                    new Rabbit(new Position(-7, 7), 9),
                 }),
-            };
-        }
-
-        public FieldManager GetNextTurn(FieldManager fieldManager)
-        {
-            IEnumerable<Lettuce> nextTurnLettuces = lettuceField.NextTurn(fieldManager.lettuces);
-            Tuple<IEnumerable<Lettuce>, IEnumerable<Rabbit>> nextTurn =
-                rabbitField.GetNextTurn(nextTurnLettuces, fieldManager.rabbits);
-
-            return new FieldManager
-            {
-                size = fieldManager.size,
-                lettuces = nextTurn.Item1,
-                rabbits = nextTurn.Item2,
-            };
-        }
-
-        public Cell[][] GetCellArrays()
-        {
-            int totalSize = size * 2 + 1;
-            Cell[][] cells = new Cell[totalSize][];
-
-            for (int x = 0; x < totalSize; x++)
-            {
-                cells[x] = new Cell[totalSize];
-
-                for (int y = 0; y < totalSize; y++)
-                {
-                    Lettuce lettuce = GetLettuce(x, y);
-                    cells[x][y] = new Cell
+                Wolves = new List<Wolf>(
+                    //                    Enumerable.Empty<Wolf>()
+                    new[]
                     {
-                        saturation = (int)lettuce.Food
-                    };
-
-                    Rabbit rabbit = GetRabbit(x, y);
-                    if(rabbit != null)
-                    {
-                        cells[x][y].l = "R";
+                        new Wolf(new Position(-3, 2), 35), 
+                        new Wolf(new Position(-3, -2), 35), 
+                        new Wolf(new Position(0, -5), 35), 
+                        new Wolf(new Position(0, 5), 35), 
+                        new Wolf(new Position(7, 0), 35), 
+                        new Wolf(new Position(-7, 0), 35), 
+                        new Wolf(new Position(-7, 0), 35), 
+                        new Wolf(new Position(8, 8), 35), 
+                        new Wolf(new Position(-8, 8), 35), 
                     }
-                }
-            }
-
-            return cells;
+                )
+            };
         }
 
-        private Rabbit GetRabbit(int x, int y)
+        public Fields GetNextTurn(Fields fieldManager)
         {
-            Position transletedPosition = GetTranslatedPosition(x, y);
+            IEnumerable<Lettuce> nextTurnLettuces = lettuceField.NextTurn(fieldManager.Lettuces);
+            Tuple<IEnumerable<Lettuce>, IEnumerable<Rabbit>> rabbitsNextTurn =
+                rabbitField.GetNextTurn(nextTurnLettuces, fieldManager.Rabbits);
 
-            return rabbits.FirstOrDefault(p => p.Position == transletedPosition);
-        }
+            Tuple<IEnumerable<Rabbit>, IEnumerable<Wolf>> wolvesNextTurn =
+                wolfField.GetNextTurn(rabbitsNextTurn.Item2, fieldManager.Wolves);
 
-        private Lettuce GetLettuce(int x, int y)
-        {
-            Position transletedPosition = GetTranslatedPosition(x, y);
-
-            return lettuces.Single(p => p.Position == transletedPosition);
-        }
-
-        private Position GetTranslatedPosition(int x, int y)
-        {
-            return new Position(x - size, y - size);
+            return new Fields
+            {
+                Size = fieldManager.Size,
+                IterationCount = fieldManager.IterationCount + 1,
+                Lettuces = rabbitsNextTurn.Item1,
+                Rabbits = wolvesNextTurn.Item1,
+                Wolves = wolvesNextTurn.Item2,
+            };
         }
     }
 }

@@ -40,7 +40,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell.cs" />
+    <Compile Include="Configuration\FieldConfigurationBase.cs" />
+    <Compile Include="Configuration\FullConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\LettuceFieldConfiguration.cs" />
+    <Compile Include="Configuration\RabbitFieldConfiguration.cs" />
+    <Compile Include="Configuration\WolfFieldConfiguration.cs" />
+    <Compile Include="FieldBase.cs" />
     <Compile Include="FieldManager.cs" />
+    <Compile Include="Fields.cs" />
+    <Compile Include="FieldsToTableTranslater.cs" />
+    <Compile Include="IFood.cs" />
     <Compile Include="Lettuce.cs" />
     <Compile Include="LettuceField.cs" />
     <Compile Include="NeighborhoodGenerator.cs" />
@@ -48,6 +59,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rabbit.cs" />
     <Compile Include="RabbitField.cs" />
+    <Compile Include="Utils\IRandom.cs" />
+    <Compile Include="Utils\SystemRandom.cs" />
+    <Compile Include="Wolf.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WolfField.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
