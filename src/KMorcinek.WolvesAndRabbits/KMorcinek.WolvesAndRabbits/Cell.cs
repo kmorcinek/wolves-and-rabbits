@@ -2,7 +2,7 @@
 
 namespace KMorcinek.WolvesAndRabbits
 {
-    public class Cell
+    public struct Cell
     {
         public String l { get; set; }
         public int saturation { get; set; }

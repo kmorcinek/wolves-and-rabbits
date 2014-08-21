@@ -6,8 +6,5 @@
             configuration: '=',
             resetConfiguration: '&',
         },
-        controller: function ($scope) {
-            console.log($scope.configuration);
-        },
     };
 });

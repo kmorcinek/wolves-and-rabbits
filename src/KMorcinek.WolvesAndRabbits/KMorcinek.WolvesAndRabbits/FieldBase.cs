@@ -17,13 +17,13 @@ namespace KMorcinek.WolvesAndRabbits
         public bool TryChooseBestPrey(IEnumerable<TPrey> preys, TPredator predator, out TPrey prey)
         {
             NeighborhoodGenerator neighborhoodGenerator = new NeighborhoodGenerator();
-            IEnumerable<Position> positions = neighborhoodGenerator.Generate(predator.Position);
+            IEnumerable<Position> predatorNeighborhood = neighborhoodGenerator.Generate(predator.Position);
 
-            IEnumerable<TPrey> neighborhood = preys.Where(p => positions.Contains(p.Position)).ToList();
+            IEnumerable<TPrey> preysInNeighborhood = preys.Where(p => predatorNeighborhood.Contains(p.Position)).ToList();
 
-            if (neighborhood.Any())
+            if (preysInNeighborhood.Any())
             {
-                prey = neighborhood.Aggregate((agg, next) => next.Food > agg.Food ? next : agg);
+                prey = preysInNeighborhood.Aggregate((agg, next) => next.Food > agg.Food ? next : agg);
                 return true;
             }
 

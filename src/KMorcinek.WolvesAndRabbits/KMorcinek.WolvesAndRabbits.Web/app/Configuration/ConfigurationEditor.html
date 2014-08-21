@@ -1,12 +1,22 @@
 ﻿<form name="form">
     <fieldset class="form-group">
+        <legend>Lettuce</legend>
+        <configuration-input value="configuration.LettuceFieldConfiguration.MaximumFood">MaximumFood</configuration-input>
+        <configuration-input value="configuration.LettuceFieldConfiguration.StartingFood">StartingFood</configuration-input>
+        <configuration-input value="configuration.LettuceFieldConfiguration.FoodGrowingEachTurn">FoodGrowingEachTurn (+ randomness)</configuration-input>
+    </fieldset>
+    <fieldset class="form-group">
         <legend>Rabbit</legend>
-        <div class="form-inline inline-group">
-            FoodConsumedForDinner: <input type="number" step="0.1" class="form-control" ng-model="configuration.RabbitFieldConfiguration.FoodConsumedForDinner" required>
-        </div>
-        <div class="form-inline inline-group">
-            BirthThreshold: <input type="number" step="0.1" class="form-control" ng-model="configuration.RabbitFieldConfiguration.BirthThreshold" required>
-        </div>
+        <configuration-input value="configuration.RabbitFieldConfiguration.FoodConsumedForDinner">FoodConsumedForDinner</configuration-input>
+        <configuration-input value="configuration.RabbitFieldConfiguration.BirthThreshold">BirthThreshold</configuration-input>
+        <configuration-input value="configuration.RabbitFieldConfiguration.DeathThreshold">DeathThreshold</configuration-input>
+        <configuration-input value="configuration.RabbitFieldConfiguration.MaximumFoodEatenFromLettuce">MaximumFoodEatenFromLettuce</configuration-input>
+    </fieldset>
+    <fieldset class="form-group">
+        <legend>Wolf</legend>
+        <configuration-input value="configuration.WolfFieldConfiguration.FoodConsumedForDinner">FoodConsumedForDinner</configuration-input>
+        <configuration-input value="configuration.WolfFieldConfiguration.BirthThreshold">BirthThreshold</configuration-input>
+        <configuration-input value="configuration.WolfFieldConfiguration.DeathThreshold">DeathThreshold</configuration-input>
     </fieldset>
     <button ng-click="resetConfiguration()" class="btn btn-primary">Reset with new configuration</button>
 </form>

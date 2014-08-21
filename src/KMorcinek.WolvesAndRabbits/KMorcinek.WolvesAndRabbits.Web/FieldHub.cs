@@ -11,11 +11,9 @@ namespace KMorcinek.WolvesAndRabbits.Web
 
         public dynamic GetNextTurn()
         {
-            dynamic data = new FieldsToTableTranslater().GetData(fields);
-
             fields = fieldManager.GetNextTurn(fields);
 
-            return data;
+            return new FieldsToTableTranslater().GetData(fields);
         }
 
         public dynamic Reset(FullConfiguration configuration)
@@ -29,11 +27,7 @@ namespace KMorcinek.WolvesAndRabbits.Web
 
             fields = fieldManager.Create();
 
-            dynamic data = new FieldsToTableTranslater().GetData(fields);
-
-            fields = fieldManager.GetNextTurn(fields);
-
-            return data;
+            return new FieldsToTableTranslater().GetData(fields);
         }
 
         public dynamic GetConfiguration()

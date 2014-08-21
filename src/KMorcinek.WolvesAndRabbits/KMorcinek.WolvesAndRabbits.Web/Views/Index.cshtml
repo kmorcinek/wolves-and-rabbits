@@ -23,7 +23,7 @@
 
     <div ng-controller="MainCtrl">
         <div class="col-md-8">
-            <table>
+            <table class="center-table">
                 <tbody>
                     <tr ng-repeat="row in data">
                         <td ng-repeat="color in row" style="background-color: hsl(120,{{color.saturation}}%,50%)">
@@ -40,7 +40,6 @@
                 <input class="btn" type="button" ng-click="nextTurns(10)" value="Next 10 turn" />
                 <input class="btn" type="button" ng-click="nextTurns(25)" value="Next 25 turn" />
                 <input class="btn" type="button" ng-click="nextTurns(100)" value="Next 100 turn" />
-                <input class="btn" type="button" ng-click="reset()" value="Reset" />
                 <input disabled="disabled" ng-model="iterationCount" />
             </div>
             <configuration-editor configuration="configuration" reset-configuration="resetConfiguration()"></configuration-editor>

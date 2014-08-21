@@ -107,6 +107,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\Configuration\ConfigurationInput.html" />
+    <Content Include="app\Configuration\ConfigurationInput.js" />
     <Content Include="app\Configuration\ConfigurationEditor.html" />
     <Content Include="app\Configuration\ConfigurationEditor.js" />
     <Content Include="app\MainCtrl.js" />
@@ -118,6 +120,7 @@
     <Content Include="Content\images\wolf.png" />
     <Content Include="Content\Styles\main.css" />
     <Content Include="Content\Styles\reset.css" />
+    <Content Include="favicon.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />

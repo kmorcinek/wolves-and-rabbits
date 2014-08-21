@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace KMorcinek.WolvesAndRabbits
+﻿namespace KMorcinek.WolvesAndRabbits
 {
     public class FieldsToTableTranslater
     {
@@ -13,21 +10,24 @@ namespace KMorcinek.WolvesAndRabbits
             for (int x = 0; x < totalSize; x++)
             {
                 cells[x] = new Cell[totalSize];
+            }
 
-                for (int y = 0; y < totalSize; y++)
-                {
-                    Lettuce lettuce = GetLettuce(fields.Lettuces, fields.Size, x, y);
-                    cells[x][y] = new Cell
-                    {
-                        saturation = (int)lettuce.Food
-                    };
+            foreach (var lettuce in fields.Lettuces)
+            {
+                Position positionInTable = TranslateToResultMatrix(fields.Size, lettuce.Position);
+                cells[positionInTable.X][positionInTable.Y].saturation = (int)lettuce.Food;
+            }
 
-                    string letter = GetPredatorLetter(fields.Rabbits, fields.Wolves, fields.Size, x, y);
-                    if (false == string.IsNullOrWhiteSpace(letter))
-                    {
-                        cells[x][y].l = letter;
-                    }
-                }
+            foreach (var rabbit in fields.Rabbits)
+            {
+                Position positionInTable = TranslateToResultMatrix(fields.Size, rabbit.Position);
+                cells[positionInTable.X][positionInTable.Y].l = "R";
+            }
+
+            foreach (var wolf in fields.Wolves)
+            {
+                Position positionInTable = TranslateToResultMatrix(fields.Size, wolf.Position);
+                cells[positionInTable.X][positionInTable.Y].l = "W";
             }
 
             return cells;
@@ -42,26 +42,9 @@ namespace KMorcinek.WolvesAndRabbits
             };
         }
 
-        private string GetPredatorLetter(IEnumerable<Rabbit> rabbits, IEnumerable<Wolf> wolves, int size, int x, int y)
+        private Position TranslateToResultMatrix(int size, Position position)
         {
-            Position translatedPosition = GetTranslatedPosition(size, x, y);
-
-            if (wolves.Any(p => p.Position == translatedPosition))
-                return "W";
-
-            return rabbits.Any(p => p.Position == translatedPosition) ? "R" : null;
+            return new Position(position.X + size, position.Y + size);
         }
-
-        private Lettuce GetLettuce(IEnumerable<Lettuce> lettuces, int size, int x, int y)
-        {
-            Position translatedPosition = GetTranslatedPosition(size, x, y);
-
-            return lettuces.Single(p => p.Position == translatedPosition);
-        }
-
-        private Position GetTranslatedPosition(int size, int x, int y)
-        {
-            return new Position(x - size, y - size);
-        } 
     }
 }

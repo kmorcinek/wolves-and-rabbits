@@ -39,3 +39,7 @@ legend {
 .inline-group input {
     max-width: 150px;
 }
+
+.center-table {
+    margin: 0 auto;
+}

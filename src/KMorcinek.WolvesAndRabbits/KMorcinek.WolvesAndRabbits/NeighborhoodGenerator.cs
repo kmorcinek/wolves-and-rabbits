@@ -1,10 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace KMorcinek.WolvesAndRabbits
 {
     public class NeighborhoodGenerator
     {
-        public IEnumerable<Position> Generate(Position position)
+        public List<Position> Generate(Position position)
+        {
+            return GenerateLazy(position).ToList();
+        }
+
+        private IEnumerable<Position> GenerateLazy(Position position)
         {
             int x = position.X;
             int y = position.Y;

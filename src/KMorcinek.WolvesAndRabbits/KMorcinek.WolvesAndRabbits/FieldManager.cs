@@ -69,7 +69,7 @@ namespace KMorcinek.WolvesAndRabbits
                     new Rabbit(new Position(-7, 7), 9),
                 }),
                 Wolves = new List<Wolf>(
-                    //                    Enumerable.Empty<Wolf>()
+                                        //Enumerable.Empty<Wolf>()
                     new[]
                     {
                         new Wolf(new Position(-3, 2), 35), 
@@ -99,9 +99,9 @@ namespace KMorcinek.WolvesAndRabbits
             {
                 Size = fieldManager.Size,
                 IterationCount = fieldManager.IterationCount + 1,
-                Lettuces = rabbitsNextTurn.Item1,
-                Rabbits = wolvesNextTurn.Item1,
-                Wolves = wolvesNextTurn.Item2,
+                Lettuces = rabbitsNextTurn.Item1.ToList(),
+                Rabbits = wolvesNextTurn.Item1.ToList(),
+                Wolves = wolvesNextTurn.Item2.ToList(),
             };
         }
     }

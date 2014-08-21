@@ -16,7 +16,7 @@ namespace KMorcinek.WolvesAndRabbits
 
         public override Tuple<IEnumerable<Lettuce>, Rabbit> PredatorMovesAndEatsOnlyBestPrey(IEnumerable<Lettuce> g, Rabbit rabbit)
         {
-            var lettuces = g.ToArray();
+            var lettuces = g.ToList();
             
             Lettuce bestLettuce;
             TryChooseBestPrey(lettuces, rabbit, out bestLettuce);

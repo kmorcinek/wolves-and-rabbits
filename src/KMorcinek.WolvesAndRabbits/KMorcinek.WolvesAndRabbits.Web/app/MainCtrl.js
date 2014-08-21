@@ -1,14 +1,15 @@
 ﻿angular.module('app').controller('MainCtrl',
-    function($scope) {
+    function ($scope) {
         $(function () {
             var fieldHub = $.connection.fieldHub;
 
             var getNextTurns = function (leftTurns) {
                 leftTurns -= 1;
-                fieldHub.server.getNextTurn().done(function(nextTurn) {
-                    $scope.data = nextTurn.cellArrays;
-                    $scope.iterationCount = nextTurn.iterationCount;
-                    $scope.$apply();
+                fieldHub.server.getNextTurn().done(function (nextTurn) {
+                    $scope.$apply(function() {
+                        $scope.data = nextTurn.cellArrays;
+                        $scope.iterationCount = nextTurn.iterationCount;
+                    });
 
                     if (leftTurns === 0) {
                         return;
@@ -18,11 +19,12 @@
                 });
             };
 
-            var reset = function() {
-                fieldHub.server.reset(null).done(function(nextTurn) {
-                    $scope.data = nextTurn.cellArrays;
-                    $scope.iterationCount = nextTurn.iterationCount;
-                    $scope.$apply();
+            var reset = function () {
+                fieldHub.server.reset(null).done(function (nextTurn) {
+                    $scope.$apply(function () {
+                        $scope.data = nextTurn.cellArrays;
+                        $scope.iterationCount = nextTurn.iterationCount;
+                    });
                 });
             };
 
@@ -31,24 +33,22 @@
                     reset();
 
                     fieldHub.server.getConfiguration().done(function (configuration) {
-                        $scope.configuration = configuration;
-                        $scope.$apply();
+                        $scope.$apply(function() {
+                            $scope.configuration = configuration;
+                        });
                     });
                 });
 
-            $scope.reset = function() {
-                reset();
-            }
-
-            $scope.nextTurns = function(count) {
+            $scope.nextTurns = function (count) {
                 getNextTurns(count);
             }
 
             $scope.resetConfiguration = function () {
                 fieldHub.server.reset($scope.configuration).done(function (nextTurn) {
-                    $scope.data = nextTurn.cellArrays;
-                    $scope.iterationCount = nextTurn.iterationCount;
-                    $scope.$apply();
+                    $scope.$apply(function() {
+                        $scope.data = nextTurn.cellArrays;
+                        $scope.iterationCount = nextTurn.iterationCount;
+                    });
                 });
             }
         });
