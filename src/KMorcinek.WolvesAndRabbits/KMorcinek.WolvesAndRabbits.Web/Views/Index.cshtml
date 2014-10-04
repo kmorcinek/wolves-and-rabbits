@@ -20,6 +20,8 @@
     @Html.Raw(@Model.BundledVendorScripts)
     <script src="/signalr/hubs" type="text/javascript"></script>
     @Html.Raw(@Model.BundledScripts)
+    
+    <h1 class="text-center">Wolves & rabbits</h1>
 
     <div ng-controller="MainCtrl">
         <div class="col-md-8">
@@ -40,7 +42,9 @@
                 <input class="btn" type="button" ng-click="nextTurns(10)" value="Next 10 turn" />
                 <input class="btn" type="button" ng-click="nextTurns(25)" value="Next 25 turn" />
                 <input class="btn" type="button" ng-click="nextTurns(100)" value="Next 100 turn" />
-                <input disabled="disabled" ng-model="iterationCount" />
+            </div>
+            <div style="margin: 10px auto;"> 
+                Current turn: <input disabled="disabled" ng-model="iterationCount" />
             </div>
             <configuration-editor configuration="configuration" reset-configuration="resetConfiguration()"></configuration-editor>
         </div>

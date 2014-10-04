@@ -8,7 +8,7 @@ namespace KMorcinek.WolvesAndRabbits.Measure
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             FullConfiguration configuration = FullConfiguration.CreateDefault();
 
