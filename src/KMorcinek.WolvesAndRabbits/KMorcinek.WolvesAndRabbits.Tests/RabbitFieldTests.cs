@@ -12,6 +12,8 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         {
             FoodConsumedForDinner = 2,
             BirthThreshold = 40,
+            MaximumFoodEatenFromLettuce = 7,
+            DeathThreshold = 5,
         });
 
         [Fact]
