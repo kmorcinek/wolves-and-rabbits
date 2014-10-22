@@ -19,9 +19,9 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void OneRabbitEatsOneLettuce()
         {
-            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 10) });
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 10) });
 
-            Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
+            Rabbit rabbit = new Rabbit(0, 10);
 
             var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
@@ -32,15 +32,15 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void GivenManyLettuces_RabbitChoosesBestLettuceAndEats()
         {
-            Lettuce bestLettuce = new Lettuce(new Position(-1, -1), 15);
+            Lettuce bestLettuce = new Lettuce(20, 15);
             List<Lettuce> lettuces = new List<Lettuce>(new[]
             {
                 bestLettuce,
-                new Lettuce(new Position(0, 0), 10),
-                new Lettuce(new Position(0, 1), 12)
+                new Lettuce(0, 10),
+                new Lettuce(-20, 12)
             });
 
-            Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
+            Rabbit rabbit = new Rabbit(0, 10);
 
             var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
@@ -51,15 +51,15 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void GivenManyLettuces_RabbitChoosesBestLettuceAndMoves()
         {
-            Lettuce bestLettuce = new Lettuce(new Position(-1, -1), 15);
+            Lettuce bestLettuce = new Lettuce(20, 15);
             List<Lettuce> lettuces = new List<Lettuce>(new[]
             {
-                new Lettuce(new Position(0, 0), 10),
+                new Lettuce(0, 10),
                 bestLettuce,
-                new Lettuce(new Position(0, 1), 12),
+                new Lettuce(-20, 12),
             });
 
-            Rabbit rabbit = new Rabbit(new Position(-1, 0), 10);
+            Rabbit rabbit = new Rabbit(-1, 10);
 
             var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
@@ -69,15 +69,15 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void GivenManyLettuces_RabbitDoesNotEatNotChoosenLettuce()
         {
-            Lettuce bestLettuce = new Lettuce(new Position(-1, -1), 15);
-            Lettuce notBestLettuce = new Lettuce(new Position(0, 1), 12);
+            Lettuce bestLettuce = new Lettuce(20, 15);
+            Lettuce notBestLettuce = new Lettuce(-20, 12);
             List<Lettuce> lettuces = new List<Lettuce>(new[]
             {
                 bestLettuce,
                 notBestLettuce
             });
 
-            Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
+            Rabbit rabbit = new Rabbit(0, 10);
 
             var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
             fieldWithRabbit.Item1.Count().ShouldBe(2);
@@ -89,21 +89,21 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         {
             List<Lettuce> lettuces = new List<Lettuce>(new[]
             {
-                new Lettuce(new Position(-1, -1), 15),
-                new Lettuce(new Position(0, 0), 10),
-                new Lettuce(new Position(0, 1), 12)
+                new Lettuce(20, 15),
+                new Lettuce(0, 10),
+                new Lettuce(-20, 12)
             });
 
             List<Rabbit> rabbits = new List<Rabbit>(new[]
             {
-                new Rabbit(new Position(0, 0), 10),
-                new Rabbit(new Position(0, 0), 9),
+                new Rabbit(0, 10),
+                new Rabbit(0, 9),
             });
 
             var fieldWithRabbit = rabbitField.GetNextTurn(lettuces, rabbits);
 
-            fieldWithRabbit.Item1.Single(p => p.Position == new Position(-1, -1)).Food.ShouldBe(8);
-            fieldWithRabbit.Item1.Single(p => p.Position == new Position(0, 1)).Food.ShouldBe(5);
+            fieldWithRabbit.Item1.Single(p => p.Position == 20).Food.ShouldBe(8);
+            fieldWithRabbit.Item1.Single(p => p.Position == -20).Food.ShouldBe(5);
             List<Rabbit> nextRabbits = fieldWithRabbit.Item2.ToList();
             nextRabbits.Count().ShouldBe(2);
             nextRabbits[0].Food.ShouldBe(15);
@@ -115,15 +115,15 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         {
             List<Lettuce> lettuces = new List<Lettuce>(new[]
             {
-                new Lettuce(new Position(0, 0), 10),
-                new Lettuce(new Position(0, 1), 12)
+                new Lettuce(0, 10),
+                new Lettuce(-20, 12)
             });
 
-            Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
+            Rabbit rabbit = new Rabbit(0, 10);
 
             Lettuce lettuce;
             rabbitField.TryChooseBestPrey(lettuces, rabbit, out lettuce).ShouldBeTrue();
-            lettuce.Position.ShouldBe(new Position(0, 1));
+            lettuce.Position.ShouldBe(-20);
         }
 
         [Fact]
@@ -131,25 +131,25 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         {
             List<Lettuce> lettuces = new List<Lettuce>(new[]
             {
-                new Lettuce(new Position(-1, -1), 15),
-                new Lettuce(new Position(0, 0), 10),
-                new Lettuce(new Position(0, 1), 12)
+                new Lettuce(20, 15),
+                new Lettuce(0, 10),
+                new Lettuce(-20, 12)
             });
 
-            Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
+            Rabbit rabbit = new Rabbit(0, 10);
 
             Lettuce lettuce;
             rabbitField.TryChooseBestPrey(lettuces, rabbit, out lettuce).ShouldBeTrue();
 
-            lettuce.Position.ShouldBe(new Position(-1, -1));
+            lettuce.Position.ShouldBe(20);
         }
 
         [Fact]
         void GivenNotEnoughLettuce_RabbitEatsEverything()
         {
-            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 2) });
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 2) });
 
-            Rabbit rabbit = new Rabbit(new Position(0, 0), 10);
+            Rabbit rabbit = new Rabbit(0, 10);
 
             var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
@@ -159,9 +159,9 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void GivenNotEnoughLettuce_RabbitsFeedsWithPercentageOfEatenFood()
         {
-            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 2) });
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 2) });
 
-            Rabbit rabbit = new Rabbit(new Position(0, 0), 0);
+            Rabbit rabbit = new Rabbit(0, 0);
 
             var fieldWithRabbit = rabbitField.PredatorMovesAndEatsOnlyBestPrey(lettuces, rabbit);
 
@@ -171,11 +171,11 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void GivenNotEnoughFood_RabbitDie()
         {
-            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 2) });
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 2) });
 
             List<Rabbit> rabbits = new List<Rabbit>(new[]
             {
-                new Rabbit(new Position(0, 0), 3),
+                new Rabbit(0, 3),
             });
 
             var fieldWithRabbit = rabbitField.GetNextTurn(lettuces, rabbits);
@@ -186,11 +186,11 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void GivenALotOfFood_NewRabbitIsBorn()
         {
-            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 20) });
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 20) });
 
             List<Rabbit> rabbits = new List<Rabbit>(new[]
             {
-                new Rabbit(new Position(0, 0), 42),
+                new Rabbit(0, 42),
             });
 
             var fieldWithRabbit = rabbitField.GetNextTurn(lettuces, rabbits);
@@ -201,11 +201,11 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void EveryTurnRabitUsesSomeFood()
         {
-            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 0) });
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 0) });
 
             List<Rabbit> rabbits = new List<Rabbit>(new[]
             {
-                new Rabbit(new Position(0, 0), 10),
+                new Rabbit(0, 10),
             });
 
             var fieldWithRabbit = rabbitField.GetNextTurn(lettuces, rabbits);

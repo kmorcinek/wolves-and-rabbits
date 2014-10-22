@@ -1,4 +1,4 @@
-﻿namespace KMorcinek.WolvesAndRabbits.Utils
+namespace KMorcinek.WolvesAndRabbits.Utils
 {
     public interface IRandom
     {

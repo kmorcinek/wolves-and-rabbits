@@ -25,7 +25,7 @@ namespace KMorcinek.WolvesAndRabbits
             bestLettuce = new Lettuce(bestLettuce.Position, bestLettuce.Food - eatenFood);
             
             var tuple = new Tuple<IEnumerable<Lettuce>, Rabbit>(
-                lettuces.Where(p => p.Position != bestLettuce.Position).Concat(new []{bestLettuce}),
+                lettuces.Where(p => p.Position != bestLettuce.Position).Concat(new[] { bestLettuce }),
                 new Rabbit(bestLettuce.Position, rabbit.Food + eatenFood));
 
             return tuple;

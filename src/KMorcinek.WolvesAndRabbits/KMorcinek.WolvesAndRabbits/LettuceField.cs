@@ -19,12 +19,11 @@ namespace KMorcinek.WolvesAndRabbits
 
         public IEnumerable<Lettuce> Create(int size)
         {
-            for (int i = -size; i < size + 1; i++)
+            int length = 2 * size + 1;
+            int range = (length * length - 1) / 2;
+            for (int i = -range; i < range + 1; i++)
             {
-                for (int j = -size; j < size + 1; j++)
-                {
-                    yield return new Lettuce(new Position(i, j), configuration.StartingFood);
-                }
+                yield return new Lettuce(i, configuration.StartingFood);
             }
         }
 

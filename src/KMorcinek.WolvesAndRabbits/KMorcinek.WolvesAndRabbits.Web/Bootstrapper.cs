@@ -1,4 +1,4 @@
-﻿using System.Web.Optimization;
+using System.Web.Optimization;
 using System.Web.Routing;
 using Nancy;
 using Nancy.Bootstrapper;

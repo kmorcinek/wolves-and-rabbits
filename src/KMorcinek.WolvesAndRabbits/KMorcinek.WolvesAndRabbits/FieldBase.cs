@@ -17,7 +17,7 @@ namespace KMorcinek.WolvesAndRabbits
         public bool TryChooseBestPrey(IEnumerable<TPrey> preys, TPredator predator, out TPrey prey)
         {
             NeighborhoodGenerator neighborhoodGenerator = new NeighborhoodGenerator();
-            IEnumerable<Position> predatorNeighborhood = neighborhoodGenerator.Generate(predator.Position);
+            IEnumerable<int> predatorNeighborhood = neighborhoodGenerator.Generate(predator.Position);
 
             IEnumerable<TPrey> preysInNeighborhood = preys.Where(p => predatorNeighborhood.Contains(p.Position)).ToList();
 
@@ -61,7 +61,7 @@ namespace KMorcinek.WolvesAndRabbits
                 .Select(p => CreatePredator(p.Position, p.Food - configuration.FoodConsumedForDinner));
         }
 
-        private TPredator CreatePredator(Position position, double food)
+        private TPredator CreatePredator(int position, double food)
         {
             return (TPredator) default(TPredator).Create(position, food);
         }

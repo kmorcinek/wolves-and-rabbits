@@ -16,9 +16,9 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void GivenOneRabbitInWolfNeighborhood_WolfEatsWholeRabbit()
         {
-            List<Rabbit> rabbits = new List<Rabbit>(new[] { new Rabbit(new Position(0, 1), 10) });
+            List<Rabbit> rabbits = new List<Rabbit>(new[] { new Rabbit(-20, 10) });
 
-            Wolf wolf = new Wolf(new Position(0, 0), 10);
+            Wolf wolf = new Wolf(0, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 
             fieldWithRabbit.Item2.Food.ShouldBe(10 + 10);
@@ -27,9 +27,9 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void GivenOneRabbitInWolfNeighborhood_WolfKillsRabbit()
         {
-            List<Rabbit> rabbits = new List<Rabbit>(new[] { new Rabbit(new Position(0, 1), 10) });
+            List<Rabbit> rabbits = new List<Rabbit>(new[] { new Rabbit(-20, 10) });
 
-            Wolf wolf = new Wolf(new Position(0, 0), 10);
+            Wolf wolf = new Wolf(0, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 
             fieldWithRabbit.Item1.Count().ShouldBe(0);
@@ -38,9 +38,9 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void GivenRabbitsOutsideOfWolfNeighborhood_WolfDoesNotEat()
         {
-            List<Rabbit> rabbits = new List<Rabbit>(new[] { new Rabbit(new Position(0, 2), 10) });
+            List<Rabbit> rabbits = new List<Rabbit>(new[] { new Rabbit(1, 10) });
 
-            Wolf wolf = new Wolf(new Position(0, 0), 10);
+            Wolf wolf = new Wolf(-1, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 
             fieldWithRabbit.Item2.Food.ShouldBe(10);
@@ -51,7 +51,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         {
             IEnumerable<Rabbit> rabbits = Enumerable.Empty<Rabbit>();
 
-            Wolf wolf = new Wolf(new Position(0, 0), 10);
+            Wolf wolf = new Wolf(0, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 
             fieldWithRabbit.Item2.Food.ShouldBe(10);
@@ -62,7 +62,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         {
             IEnumerable<Rabbit> rabbits = Enumerable.Empty<Rabbit>();
 
-            Position wolfStartingPosition = new Position(1, -1);
+            int wolfStartingPosition = 22;
             Wolf wolf = new Wolf(wolfStartingPosition, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 

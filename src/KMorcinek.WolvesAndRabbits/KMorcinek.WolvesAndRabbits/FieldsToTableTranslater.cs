@@ -42,9 +42,14 @@
             };
         }
 
-        private Position TranslateToResultMatrix(int size, Position position)
+        private static Position TranslateToResultMatrix(int size, int position)
         {
-            return new Position(position.X + size, position.Y + size);
+            int length = 2 * size + 1;
+            int range = (length * length - 1) / 2;
+
+            int newPosition = position + range;
+
+            return new Position(newPosition / length, newPosition % length);
         }
     }
 }

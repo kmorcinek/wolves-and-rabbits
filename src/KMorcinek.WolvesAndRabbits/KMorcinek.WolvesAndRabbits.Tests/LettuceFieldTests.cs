@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using KMorcinek.WolvesAndRabbits.Configuration;
 using KMorcinek.WolvesAndRabbits.Utils;
@@ -31,17 +32,17 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         void CreateWithSizeOne()
         {
             Lettuce[] lettuces = lettuceField.Create(1).ToArray();
-
+            throw new NotImplementedException();
             lettuces.Count().ShouldBe(9);
-            lettuces.Count(p => p.Position.X == 1 && p.Position.Y == 1).ShouldBe(1);
-            lettuces.Count(p => p.Position.X == -1 && p.Position.Y == -1).ShouldBe(1);
-            lettuces.Count(p => p.Position.X == 1 && p.Position.Y == -1).ShouldBe(1);
+            //lettuces.Count(p => p.int.X == 1 && p.int.Y == 1).ShouldBe(1);
+            //lettuces.Count(p => p.int.X == -1 && p.int.Y == -1).ShouldBe(1);
+            //lettuces.Count(p => p.int.X == 1 && p.int.Y == -1).ShouldBe(1);
         }
 
         [Fact]
         void NextTurnOneLettuceGrows()
         {
-            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 10) });
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 10) });
 
             IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
 
@@ -64,7 +65,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         [Fact]
         void LettuceCannotGrowMoreThanMaximum()
         {
-            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(new Position(0, 0), 100) });
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 100) });
 
             IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
 

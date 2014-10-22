@@ -1,4 +1,4 @@
-﻿namespace KMorcinek.WolvesAndRabbits.Configuration
+namespace KMorcinek.WolvesAndRabbits.Configuration
 {
     public class LettuceFieldConfiguration
     {

@@ -1,4 +1,4 @@
-﻿using KMorcinek.WolvesAndRabbits.Configuration;
+using KMorcinek.WolvesAndRabbits.Configuration;
 using KMorcinek.WolvesAndRabbits.Utils;
 using Microsoft.AspNet.SignalR;
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using KMorcinek.WolvesAndRabbits.Configuration;
 using KMorcinek.WolvesAndRabbits.Utils;

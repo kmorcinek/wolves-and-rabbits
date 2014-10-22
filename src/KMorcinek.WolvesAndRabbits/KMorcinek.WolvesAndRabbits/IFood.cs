@@ -1,10 +1,10 @@
-﻿namespace KMorcinek.WolvesAndRabbits
+namespace KMorcinek.WolvesAndRabbits
 {
     public interface IFood
     {
-        Position Position { get; }
+        int Position { get; }
         double Food { get; }
 
-        IFood Create(Position position, double food);
+        IFood Create(int position, double food);
     }
 }

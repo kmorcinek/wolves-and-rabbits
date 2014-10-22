@@ -1,14 +1,14 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 
 namespace KMorcinek.WolvesAndRabbits
 {
-    [DebuggerDisplay("{Position}, Food:{Food}")]
+    [DebuggerDisplay("{int}, Food:{Food}")]
     public struct Wolf : IFood
     {
-        private readonly Position position;
+        private readonly int position;
         private readonly double food;
 
-        public Position Position
+        public int Position
         {
             get { return position; }
         }
@@ -18,13 +18,13 @@ namespace KMorcinek.WolvesAndRabbits
             get { return food; }
         }
 
-        public Wolf(Position position, double food)
+        public Wolf(int position, double food)
         {
             this.position = position;
             this.food = food;
         }
 
-        public IFood Create(Position position, double food)
+        public IFood Create(int position, double food)
         {
             return new Wolf(position, food);
         }

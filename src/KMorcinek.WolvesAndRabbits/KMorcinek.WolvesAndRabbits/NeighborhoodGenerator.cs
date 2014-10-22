@@ -5,25 +5,15 @@ namespace KMorcinek.WolvesAndRabbits
 {
     public class NeighborhoodGenerator
     {
-        public List<Position> Generate(Position position)
+        public List<int> Generate(int position)
         {
             return GenerateLazy(position).ToList();
         }
 
-        private IEnumerable<Position> GenerateLazy(Position position)
+        private IEnumerable<int> GenerateLazy(int position)
         {
-            int x = position.X;
-            int y = position.Y;
-
-            yield return new Position(x - 1, y - 1);
-            yield return new Position(x - 1, y);
-            yield return new Position(x - 1, y + 1);
-            yield return new Position(x, y - 1);
-            yield return new Position(x, y);
-            yield return new Position(x, y + 1);
-            yield return new Position(x + 1, y - 1);
-            yield return new Position(x + 1, y);
-            yield return new Position(x + 1, y + 1);
+            int[] array = {-22, -21, -20, -1, 0, 1, 20, 21, 22};
+            return array.Select( n => n + position);
         }
     }
 }

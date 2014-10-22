@@ -50,7 +50,9 @@
     <Compile Include="FieldBase.cs" />
     <Compile Include="FieldManager.cs" />
     <Compile Include="Fields.cs" />
-    <Compile Include="FieldsToTableTranslater.cs" />
+    <Compile Include="FieldsToTableTranslater.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="IFood.cs" />
     <Compile Include="Lettuce.cs" />
     <Compile Include="LettuceField.cs" />
