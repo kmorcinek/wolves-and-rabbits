@@ -619,10 +619,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="CsharpWolvesAdapter.cs" />
+    <Compile Include="Adapters\CsharpWolvesAdapter.cs" />
     <Compile Include="FieldHub.cs" />
-    <Compile Include="FsharpWolvesAdapter.cs" />
-    <Compile Include="IWolvesAdapter.cs" />
+    <Compile Include="Adapters\FsharpWolvesAdapter.cs" />
+    <Compile Include="Adapters\IWolvesAdapter.cs" />
     <Compile Include="Index.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
