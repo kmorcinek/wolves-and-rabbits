@@ -2,7 +2,7 @@
 {
     public class FieldsToTableTranslater
     {
-        private Cell[][] GetCellArrays(Fields fields)
+        private static Cell[][] GetCellArrays(Fields fields)
         {
             int totalSize = fields.Size * 2 + 1;
             Cell[][] cells = new Cell[totalSize][];

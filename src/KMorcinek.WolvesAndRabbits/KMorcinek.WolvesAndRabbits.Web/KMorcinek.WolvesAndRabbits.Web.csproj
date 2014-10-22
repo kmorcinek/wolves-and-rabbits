@@ -44,6 +44,10 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\FSharp.Core\v4.0_4.3.1.0__b03f5f7f11d50a3a\FSharp.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.1.1.1\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
@@ -615,7 +619,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CsharpWolvesAdapter.cs" />
     <Compile Include="FieldHub.cs" />
+    <Compile Include="FsharpWolvesAdapter.cs" />
+    <Compile Include="IWolvesAdapter.cs" />
     <Compile Include="Index.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -633,6 +640,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KMorcinek.WolvesAndRabbits.FSharp\KMorcinek.WolvesAndRabbits.FSharp.fsproj">
+      <Project>{08714a6e-e645-4b8e-b94f-8284908e94b5}</Project>
+      <Name>KMorcinek.WolvesAndRabbits.FSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KMorcinek.WolvesAndRabbits\KMorcinek.WolvesAndRabbits.csproj">
       <Project>{1C4D780D-C9B2-47AD-B905-98C0F9EBA25B}</Project>
       <Name>KMorcinek.WolvesAndRabbits</Name>

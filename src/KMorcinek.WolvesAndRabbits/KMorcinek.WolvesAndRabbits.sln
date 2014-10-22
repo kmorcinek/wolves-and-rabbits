@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.WolvesAndRabbits", "KMorcinek.WolvesAndRabbits\KMorcinek.WolvesAndRabbits.csproj", "{1C4D780D-C9B2-47AD-B905-98C0F9EBA25B}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.WolvesAndRabbits.Web", "KMorcinek.WolvesAndRabbits.Web\KMorcinek.WolvesAndRabbits.Web.csproj", "{EADE1464-62A4-4DAB-AA1A-0A37F773C7F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.WolvesAndRabbits.Measure", "KMorcinek.WolvesAndRabbits.Measure\KMorcinek.WolvesAndRabbits.Measure.csproj", "{905E2151-33C8-46CC-8342-6EF44A44351D}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "KMorcinek.WolvesAndRabbits.FSharp", "KMorcinek.WolvesAndRabbits.FSharp\KMorcinek.WolvesAndRabbits.FSharp.fsproj", "{08714A6E-E645-4B8E-B94F-8284908E94B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{905E2151-33C8-46CC-8342-6EF44A44351D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{905E2151-33C8-46CC-8342-6EF44A44351D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{905E2151-33C8-46CC-8342-6EF44A44351D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08714A6E-E645-4B8E-B94F-8284908E94B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08714A6E-E645-4B8E-B94F-8284908E94B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08714A6E-E645-4B8E-B94F-8284908E94B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08714A6E-E645-4B8E-B94F-8284908E94B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
