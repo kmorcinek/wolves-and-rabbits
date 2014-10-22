@@ -15,7 +15,7 @@ let GetNeighbourhood (position) lettuces =
     lettuces |> List.filter (fun (n : Rabbit) -> 
        match List.tryFind (fun i ->  n.Position + i = position) neighbourhoodIndexes with
        | None -> false
-       | Some(_) -> true
+       | _ -> true
     )
 
 let AddHim (max, position) (lettuce : Rabbit) = 
