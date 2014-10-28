@@ -58,11 +58,11 @@
     <None Include="App.config" />
     <Compile Include="Types.fs" />
     <Compile Include="Lettuce.fs" />
+    <Compile Include="LettuceTests.fs" />
     <Compile Include="Rabbit.fs" />
     <Compile Include="Runner.fs" />
     <Compile Include="RabbitTests.fs" />
     <None Include="packages.config" />
-    <Compile Include="LettuceTests.fs" />
     <Compile Include="FsharpFieldManager.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
