@@ -1,6 +1,6 @@
 ﻿module FsharpFieldManager
 
-open Types
+open FsTypes
 open Lettuce
 open Rabbit
 open System

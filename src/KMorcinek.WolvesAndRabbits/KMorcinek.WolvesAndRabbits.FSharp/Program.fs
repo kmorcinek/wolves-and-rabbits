@@ -1,7 +1,7 @@
 ﻿module Books
 
 open System
-open Types
+open FsTypes
 open Lettuce
 open Rabbit
 open FsharpFieldManager

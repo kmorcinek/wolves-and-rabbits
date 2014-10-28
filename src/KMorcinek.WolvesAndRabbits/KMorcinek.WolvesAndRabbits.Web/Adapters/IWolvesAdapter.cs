@@ -1,6 +1,6 @@
 ﻿using KMorcinek.WolvesAndRabbits.Configuration;
 
-namespace KMorcinek.WolvesAndRabbits.Web
+namespace KMorcinek.WolvesAndRabbits.Web.Adapters
 {
     internal interface IWolvesAdapter
     {

@@ -1,6 +1,6 @@
 ﻿module Lettuce
 
-open Types
+open FsTypes
 
 let maxFoodOnLettuce = 100.
 let fieldSize = [ 0..8 ]

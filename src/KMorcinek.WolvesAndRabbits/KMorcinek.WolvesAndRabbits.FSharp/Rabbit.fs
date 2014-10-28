@@ -1,6 +1,6 @@
 ﻿module Rabbit
 
-open Types
+open FsTypes
 open Lettuce
 
 let MaximumFoodEatenFromLettuce = 10.

@@ -1,7 +1,7 @@
 ﻿using KMorcinek.WolvesAndRabbits.Configuration;
 using KMorcinek.WolvesAndRabbits.Utils;
 
-namespace KMorcinek.WolvesAndRabbits.Web
+namespace KMorcinek.WolvesAndRabbits.Web.Adapters
 {
     class CsharpWolvesAdapter : IWolvesAdapter
     {

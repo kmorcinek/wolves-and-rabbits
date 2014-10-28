@@ -1,6 +1,6 @@
 ﻿module Runner
 
-open Types
+open FsTypes
 open Rabbit
 
 let Create = 

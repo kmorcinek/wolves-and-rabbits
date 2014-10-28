@@ -1,4 +1,5 @@
 using KMorcinek.WolvesAndRabbits.Configuration;
+using KMorcinek.WolvesAndRabbits.Web.Adapters;
 using Microsoft.AspNet.SignalR;
 
 namespace KMorcinek.WolvesAndRabbits.Web

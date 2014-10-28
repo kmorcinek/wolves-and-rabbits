@@ -3,7 +3,7 @@
 open Lettuce
 open Xunit
 open Xunit.Should
-open Types
+open FsTypes
 
     let anyPosition = 1
     let growHalfFood () = 0.5

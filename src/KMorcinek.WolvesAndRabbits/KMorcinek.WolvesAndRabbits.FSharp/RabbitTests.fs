@@ -1,7 +1,7 @@
 ﻿module Tests
 open Xunit
 open Xunit.Should
-open Types
+open FsTypes
 open Rabbit
 
 type RabbitTestClass() = 

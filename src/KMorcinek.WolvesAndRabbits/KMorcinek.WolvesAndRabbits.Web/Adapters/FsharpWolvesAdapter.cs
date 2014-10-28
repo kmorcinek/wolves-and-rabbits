@@ -3,11 +3,11 @@ using System.Linq;
 using KMorcinek.WolvesAndRabbits.Configuration;
 using Microsoft.FSharp.Collections;
 
-namespace KMorcinek.WolvesAndRabbits.Web
+namespace KMorcinek.WolvesAndRabbits.Web.Adapters
 {
     class FsharpWolvesAdapter : IWolvesAdapter
     {
-        private static Tuple<FSharpList<Types.Rabbit>, FSharpList<Types.Rabbit>, FSharpList<Types.Rabbit>> fields;
+        private static Tuple<FSharpList<FsTypes.Rabbit>, FSharpList<FsTypes.Rabbit>, FSharpList<FsTypes.Rabbit>> fields;
 
         public dynamic GetNextTurn()
         {
@@ -23,7 +23,7 @@ namespace KMorcinek.WolvesAndRabbits.Web
             return new FieldsToTableTranslater().GetData(Translate(fields));
         }
 
-        private static Fields Translate(Tuple<FSharpList<Types.Rabbit>, FSharpList<Types.Rabbit>, FSharpList<Types.Rabbit>> tuple)
+        private static Fields Translate(Tuple<FSharpList<FsTypes.Rabbit>, FSharpList<FsTypes.Rabbit>, FSharpList<FsTypes.Rabbit>> tuple)
         {
             Fields fields1 = new Fields
             {
@@ -37,17 +37,17 @@ namespace KMorcinek.WolvesAndRabbits.Web
             return fields1;
         }
 
-        private static Rabbit ToRabbit(Types.Rabbit rabbit)
+        private static Rabbit ToRabbit(FsTypes.Rabbit rabbit)
         {
             return new Rabbit(rabbit.Position, rabbit.Food);
         }
 
-        private static Lettuce ToLettuce(Types.Rabbit rabbit)
+        private static Lettuce ToLettuce(FsTypes.Rabbit rabbit)
         {
             return new Lettuce(rabbit.Position, rabbit.Food);
         }
 
-        private static Wolf ToWolf(Types.Rabbit rabbit)
+        private static Wolf ToWolf(FsTypes.Rabbit rabbit)
         {
             return new Wolf(rabbit.Position, rabbit.Food);
         }
