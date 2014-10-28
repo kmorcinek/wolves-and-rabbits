@@ -18,7 +18,7 @@ namespace KMorcinek.WolvesAndRabbits.Web
 
         public dynamic Reset(FullConfiguration configuration)
         {
-            fields = global::Rabbit.Create;
+            fields = Runner.Create;
 
             return new FieldsToTableTranslater().GetData(Translate(fields));
         }

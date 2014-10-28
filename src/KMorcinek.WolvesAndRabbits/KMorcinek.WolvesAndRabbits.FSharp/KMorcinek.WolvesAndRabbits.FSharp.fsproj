@@ -59,6 +59,7 @@
     <Compile Include="Types.fs" />
     <Compile Include="Lettuce.fs" />
     <Compile Include="Rabbit.fs" />
+    <Compile Include="Runner.fs" />
     <Compile Include="RabbitTests.fs" />
     <None Include="packages.config" />
     <Compile Include="LettuceTests.fs" />
