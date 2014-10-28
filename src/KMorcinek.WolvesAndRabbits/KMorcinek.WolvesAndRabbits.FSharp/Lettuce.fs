@@ -14,14 +14,14 @@ let createLettuceFieldFromSize size =
     let range = (length * length - 1) / 2
     [-range..range]
     |> List.map (fun n -> new Rabbit(n, 12.))
-
-let grow (lettuce:Rabbit) =
-    let updatedFood = lettuce.Food + 1.5
+ 
+let grow howMuchGrow (lettuce:Rabbit) =
+    let updatedFood = lettuce.Food + 1. + howMuchGrow()
     new Rabbit(lettuce.Position, min updatedFood maxFoodOnLettuce)
     
-let NextTurn list =
+let NextTurn howMuchGrow list =
     list
-    |> List.map grow
+    |> List.map (grow howMuchGrow)
 
 let printLettuce (items:Rabbit List) =
     for item in items do

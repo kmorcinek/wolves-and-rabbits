@@ -57,4 +57,3 @@ let Create =
                     new Rabbit(-54, 60.); 
                     new Rabbit(-50, 60.)]
     (lettuces, rabbits, wolves)
-

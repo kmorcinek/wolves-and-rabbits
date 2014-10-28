@@ -78,8 +78,10 @@ let Breed previousRabbits (rabbit : Rabbit) =
 
 let BreedAnimals (preys : Rabbit List) = preys |> List.fold Breed []
 
+let random = System.Random()
+
 let GetNextTurn (lettuces, rabbits, wolves) =
-    let nextLettuce = NextTurn lettuces
+    let nextLettuce = NextTurn random.NextDouble lettuces
 
     let (lettuceAfterRabbits, nextRabbits) = GoThroughPredators RabbitEatsLettuce nextLettuce rabbits 
     let (rabbitsAfterWolves, nextWolves) = GoThroughPredators WolfEatsRabbit nextRabbits wolves 

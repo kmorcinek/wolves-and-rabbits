@@ -6,6 +6,7 @@ open Xunit.Should
 open Types
 
     let anyPosition = 1
+    let growHalfFood () = 0.5
 
     [<Fact>]
         let ``Create basic lettuce field with 9 fields``() = 
@@ -17,7 +18,7 @@ open Types
         let ``NextTurn() for Lettuce``() = 
             let lettuces = [new Rabbit(anyPosition, 1.)]
 
-            let nextTurn = NextTurn(lettuces)
+            let nextTurn = NextTurn growHalfFood lettuces
 
             Assert.Equal(3., nextTurn.Head.Food)
             
@@ -25,7 +26,7 @@ open Types
         let ``NextTurn() for Lettuce cannot grow more than max``() = 
             let lettuces = [new Rabbit(anyPosition, 99.)]
 
-            let nextTurn = NextTurn(lettuces)
+            let nextTurn = NextTurn growHalfFood lettuces
 
             Assert.Equal(100., nextTurn.Head.Food)
             
