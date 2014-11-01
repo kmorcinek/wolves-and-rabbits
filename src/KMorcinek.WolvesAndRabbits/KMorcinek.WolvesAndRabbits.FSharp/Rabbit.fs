@@ -16,16 +16,11 @@ let GetNeighbourhood (position) lettuces =
                     | None -> false
                     | _ -> true)
 
-let AddHim (max, position) (lettuce : Rabbit) = 
-    if lettuce.Food >= max then (lettuce.Food, lettuce)
-    else (max, position)
-
 let ChooseBestPreyPosition(lettuces : Rabbit List) = 
     if lettuces.IsEmpty then None
     else 
-        let (maxValue, lettuce) = lettuces |> List.fold AddHim (System.Double.NegativeInfinity, lettuces.Head)
-        if maxValue = System.Double.NegativeInfinity then None
-        else Some(lettuce.Position)
+        let bestPrey = lettuces |> List.maxBy(fun prey -> prey.Food)
+        Some(bestPrey.Position)
 
 let eat f (prey : Rabbit) (preys, animal, preyPosition) = 
     if prey.Position = preyPosition then f prey (preys, animal, preyPosition)
