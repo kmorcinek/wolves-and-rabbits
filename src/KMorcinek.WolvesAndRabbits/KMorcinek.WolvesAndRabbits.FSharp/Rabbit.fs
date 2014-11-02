@@ -47,8 +47,8 @@ let PredatorMovesAndEatsOnlyBestPrey eatPreyF (rabbit : Rabbit) preys =
     | Some(preyPosition) -> PredatorEatsPrey rabbit preys preyPosition eatPreyF
     | None -> (rabbit, preys)
 
-let RabbitEatsLettuce = PredatorMovesAndEatsOnlyBestPrey(eat EatLettuceInternal)
-let WolfEatsRabbit = PredatorMovesAndEatsOnlyBestPrey(eat EatRabbitInternal)
+let RabbitEatsLettuce : Rabbit-> Rabbit list -> Rabbit * Rabbit list = PredatorMovesAndEatsOnlyBestPrey(eat EatLettuceInternal)
+let WolfEatsRabbit : Rabbit-> Rabbit list -> Rabbit * Rabbit list  = PredatorMovesAndEatsOnlyBestPrey(eat EatRabbitInternal)
 
 let GoThroughPredators howToEatF preys predators = 
     let f (lettuces, rabbits) rabbit = 
