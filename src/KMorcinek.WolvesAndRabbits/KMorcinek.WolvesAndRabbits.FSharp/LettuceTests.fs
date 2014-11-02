@@ -20,7 +20,7 @@ open FsTypes
 
             let nextTurn = NextTurn growHalfFood lettuces
 
-            Assert.Equal(3., nextTurn.Head.Food)
+            Assert.Equal(2.5, nextTurn.Head.Food)
             
     [<Fact>]
         let ``NextTurn() for Lettuce cannot grow more than max``() = 
