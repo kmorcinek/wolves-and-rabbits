@@ -28,7 +28,7 @@ let eat f (prey : Rabbit) (preys, animal, preyPosition) =
 
 let EatLettuceInternal (lettuce : Rabbit) (preys, (animal : Rabbit), preyPosition) = 
     let foodToEat = min lettuce.Food RabbitEatsMaxFood
-    (new Rabbit(lettuce.Position, lettuce.Food - foodToEat) :: preys, new Rabbit(preyPosition, animal.Food + foodToEat), 
+    (lettuce.WithUpdatedFood(lettuce.Food - foodToEat) :: preys, new Rabbit(preyPosition, animal.Food + foodToEat), 
      preyPosition)
 
 let EatRabbitInternal (rabbit : Rabbit) (rabbits, (animal : Rabbit), preyPosition) = 
@@ -58,13 +58,13 @@ let GoThroughPredators howToEatF preys predators =
 
 let AfterDinner animals = 
     animals 
-    |> List.map (fun (animal : Rabbit) -> new Rabbit(animal.Position, animal.Food - RabbitFoodConsumedForDinner))
+    |> List.map (fun (animal : Rabbit) -> animal.WithUpdatedFood(animal.Food - RabbitFoodConsumedForDinner))
 let SurviveNotHungry(preys : Rabbit List) = preys |> List.filter (fun r -> r.Food > RabbitDiesFood)
 
 let Breed previousRabbits (rabbit : Rabbit) = 
     if rabbit.Food > RabbitBreedsFood then 
-        (new Rabbit(rabbit.Position, rabbit.Food / 2.)) 
-        :: (new Rabbit(rabbit.Position, rabbit.Food / 4.)) :: previousRabbits
+        rabbit.WithUpdatedFood(rabbit.Food / 2.)
+        :: rabbit.WithUpdatedFood(rabbit.Food / 4.) :: previousRabbits
     else rabbit :: previousRabbits
 
 let BreedAnimals(preys : Rabbit List) = preys |> List.fold Breed []
