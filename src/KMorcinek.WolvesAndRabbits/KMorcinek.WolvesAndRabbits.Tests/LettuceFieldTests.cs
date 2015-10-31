@@ -29,7 +29,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         }
 
         [Fact]
-        void CreateWithSizeOne()
+        public void CreateWithSizeOne()
         {
             Lettuce[] lettuces = lettuceField.Create(1).ToArray();
             throw new NotImplementedException();
@@ -40,7 +40,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         }
 
         [Fact]
-        void NextTurnOneLettuceGrows()
+        public void NextTurnOneLettuceGrows()
         {
             List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 10) });
 
@@ -50,7 +50,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         }
 
         [Fact]
-        void NextTurnAllLettucesGrow()
+        public void NextTurnAllLettucesGrow()
         {
             IEnumerable<Lettuce> lettuces = lettuceField.Create(1);
 
@@ -63,7 +63,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         }
 
         [Fact]
-        void LettuceCannotGrowMoreThanMaximum()
+        public void LettuceCannotGrowMoreThanMaximum()
         {
             List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 100) });
 

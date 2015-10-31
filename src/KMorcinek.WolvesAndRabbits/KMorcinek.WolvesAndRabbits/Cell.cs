@@ -4,7 +4,7 @@ namespace KMorcinek.WolvesAndRabbits
 {
     public struct Cell
     {
-        public String l { get; set; }
+        public string l { get; set; }
         public int saturation { get; set; }
     }
 }

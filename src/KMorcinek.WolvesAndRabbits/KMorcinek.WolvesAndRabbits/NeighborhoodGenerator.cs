@@ -12,8 +12,8 @@ namespace KMorcinek.WolvesAndRabbits
 
         private IEnumerable<int> GenerateLazy(int position)
         {
-            int[] array = {-22, -21, -20, -1, 0, 1, 20, 21, 22};
-            return array.Select( n => n + position);
+            int[] array = { -22, -21, -20, -1, 0, 1, 20, 21, 22 };
+            return array.Select(n => n + position);
         }
     }
 }

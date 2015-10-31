@@ -19,8 +19,8 @@ namespace KMorcinek.WolvesAndRabbits
 
         public IEnumerable<Lettuce> Create(int size)
         {
-            int length = 2 * size + 1;
-            int range = (length * length - 1) / 2;
+            int length = (2 * size) + 1;
+            int range = ((length * length) - 1) / 2;
             for (int i = -range; i < range + 1; i++)
             {
                 yield return new Lettuce(i, configuration.StartingFood);
@@ -32,7 +32,7 @@ namespace KMorcinek.WolvesAndRabbits
             return lettuces.Select(Grow);
         }
 
-        Lettuce Grow(Lettuce lettuce)
+        private Lettuce Grow(Lettuce lettuce)
         {
             double nextFoodSize = Math.Min(lettuce.Food + configuration.FoodGrowingEachTurn + random.NextDouble(), configuration.MaximumFood);
             return new Lettuce(lettuce.Position, nextFoodSize);

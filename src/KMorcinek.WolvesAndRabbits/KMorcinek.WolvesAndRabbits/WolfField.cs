@@ -7,10 +7,9 @@ namespace KMorcinek.WolvesAndRabbits
 {
     public class WolfField : FieldBase<Rabbit, Wolf>
     {
-        public WolfField(WolfFieldConfiguration configuration)
+        public WolfField(FieldConfigurationBase configuration)
             : base(configuration)
         {
-
         }
 
         public override Tuple<IEnumerable<Rabbit>, Wolf> PredatorMovesAndEatsOnlyBestPrey(IEnumerable<Rabbit> g, Wolf wolf)

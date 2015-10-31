@@ -5,7 +5,9 @@ using KMorcinek.WolvesAndRabbits.Configuration;
 
 namespace KMorcinek.WolvesAndRabbits
 {
-    public abstract class FieldBase<TPrey, TPredator> where TPrey : struct, IFood where TPredator : struct, IFood
+    public abstract class FieldBase<TPrey, TPredator>
+        where TPrey : struct, IFood
+        where TPredator : struct, IFood
     {
         private readonly FieldConfigurationBase configuration;
 
@@ -31,8 +33,8 @@ namespace KMorcinek.WolvesAndRabbits
             return false;
         }
 
-        public abstract Tuple<IEnumerable<TPrey>, TPredator> PredatorMovesAndEatsOnlyBestPrey(IEnumerable<TPrey> g,
-            TPredator predator);
+        public abstract Tuple<IEnumerable<TPrey>, TPredator> PredatorMovesAndEatsOnlyBestPrey(
+            IEnumerable<TPrey> g, TPredator predator);
 
         public Tuple<IEnumerable<TPrey>, IEnumerable<TPredator>> GetNextTurn(IEnumerable<TPrey> preys, IEnumerable<TPredator> predators)
         {
@@ -42,7 +44,7 @@ namespace KMorcinek.WolvesAndRabbits
             {
                 var preysAndPredators = PredatorMovesAndEatsOnlyBestPrey(preys, predator);
                 preys = preysAndPredators.Item1;
-                nextPredators = nextPredators.Concat(new[] {preysAndPredators.Item2});
+                nextPredators = nextPredators.Concat(new[] { preysAndPredators.Item2 });
             }
 
             nextPredators = GetAfterDinner(nextPredators);
@@ -51,8 +53,7 @@ namespace KMorcinek.WolvesAndRabbits
 
             return new Tuple<IEnumerable<TPrey>, IEnumerable<TPredator>>(
                 preys,
-                nextPredators
-                );
+                nextPredators);
         }
 
         private IEnumerable<TPredator> GetAfterDinner(IEnumerable<TPredator> predators)
@@ -63,7 +64,7 @@ namespace KMorcinek.WolvesAndRabbits
 
         private TPredator CreatePredator(int position, double food)
         {
-            return (TPredator) default(TPredator).Create(position, food);
+            return (TPredator)default(TPredator).Create(position, food);
         }
 
         private IEnumerable<TPredator> AddNewBorns(IEnumerable<TPredator> predators)

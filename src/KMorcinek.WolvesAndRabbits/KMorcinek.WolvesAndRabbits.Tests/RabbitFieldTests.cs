@@ -17,7 +17,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         });
 
         [Fact]
-        void OneRabbitEatsOneLettuce()
+        public void OneRabbitEatsOneLettuce()
         {
             List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 10) });
 
@@ -30,7 +30,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         }
 
         [Fact]
-        void GivenManyLettuces_RabbitChoosesBestLettuceAndEats()
+        public void GivenManyLettuces_RabbitChoosesBestLettuceAndEats()
         {
             Lettuce bestLettuce = new Lettuce(20, 15);
             List<Lettuce> lettuces = new List<Lettuce>(new[]
@@ -49,7 +49,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         }
 
         [Fact]
-        void GivenManyLettuces_RabbitChoosesBestLettuceAndMoves()
+        public void GivenManyLettuces_RabbitChoosesBestLettuceAndMoves()
         {
             Lettuce bestLettuce = new Lettuce(20, 15);
             List<Lettuce> lettuces = new List<Lettuce>(new[]
@@ -67,7 +67,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         }
 
         [Fact]
-        void GivenManyLettuces_RabbitDoesNotEatNotChoosenLettuce()
+        public void GivenManyLettuces_RabbitDoesNotEatNotChoosenLettuce()
         {
             Lettuce bestLettuce = new Lettuce(20, 15);
             Lettuce notBestLettuce = new Lettuce(-20, 12);
@@ -85,7 +85,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         }
 
         [Fact]
-        void ManyRabbitsEatManyLettuces()
+        public void ManyRabbitsEatManyLettuces()
         {
             List<Lettuce> lettuces = new List<Lettuce>(new[]
             {

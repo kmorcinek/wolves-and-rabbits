@@ -1,8 +1,8 @@
 using System;
 using System.IO;
+using System.Diagnostics;
 using KMorcinek.WolvesAndRabbits.Configuration;
 using KMorcinek.WolvesAndRabbits.Utils;
-using System.Diagnostics;
 
 namespace KMorcinek.WolvesAndRabbits.Measure
 {

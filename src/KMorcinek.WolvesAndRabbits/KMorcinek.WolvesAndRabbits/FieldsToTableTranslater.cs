@@ -2,9 +2,18 @@
 {
     public class FieldsToTableTranslater
     {
+        public dynamic GetData(Fields fields)
+        {
+            return new
+            {
+                cellArrays = GetCellArrays(fields),
+                iterationCount = fields.IterationCount,
+            };
+        }
+
         private static Cell[][] GetCellArrays(Fields fields)
         {
-            int totalSize = fields.Size * 2 + 1;
+            int totalSize = (fields.Size * 2) + 1;
             Cell[][] cells = new Cell[totalSize][];
 
             for (int x = 0; x < totalSize; x++)
@@ -33,19 +42,10 @@
             return cells;
         }
 
-        public dynamic GetData(Fields fields)
-        {
-            return new
-            {
-                cellArrays = GetCellArrays(fields),
-                iterationCount = fields.IterationCount,
-            };
-        }
-
         private static Position TranslateToResultMatrix(int size, int position)
         {
-            int length = 2 * size + 1;
-            int range = (length * length - 1) / 2;
+            int length = (2 * size) + 1;
+            int range = ((length * length) - 1) / 2;
 
             int newPosition = position + range;
 
