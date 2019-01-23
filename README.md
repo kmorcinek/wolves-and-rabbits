@@ -1,7 +1,8 @@
-Wolves & rabbits
-==================
+# Wolves & rabbits
 
 Main purpose is learning.
+
+## C# version
 
 It is my first approach to write C# code using only Functional programming (not perfect, but for my current knowledge). Immutability and no dealing with state (no side effects). Yes, **writing in functional style is possible in C#/.NET** (starting with LINQ in .NET 3.5)
 
@@ -12,10 +13,11 @@ Todos:
   - Interface method *IFood Create(Position position, double food);* should be moved to a factory.
   - *NeighborhoodGenerator* should use Dictionary<Position, Positions[]>
 
-Should probably use F# as soon as I learn it.
+## F# version
 
-Demo
-==================
+Later rewritten whole app to F#.
+
+## Demo
 
 [Web version of Wolves and rabbits]
 
