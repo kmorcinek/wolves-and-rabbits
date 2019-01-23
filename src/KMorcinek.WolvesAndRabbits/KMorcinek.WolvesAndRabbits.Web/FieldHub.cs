@@ -6,7 +6,7 @@ namespace KMorcinek.WolvesAndRabbits.Web
 {
     public class FieldHub : Hub
     {
-        readonly IWolvesAdapter wolvesAdapter = new FsharpWolvesAdapter();
+        readonly IWolvesAdapter wolvesAdapter = new CsharpWolvesAdapter();
 
         public dynamic GetNextTurn()
         {
