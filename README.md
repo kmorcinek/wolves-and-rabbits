@@ -2,6 +2,10 @@
 
 Main purpose is learning.
 
+## Short description
+
+Lettuce (sałata) grown on field. Rabbits eat lettuce. Wolves eat rabbits. Animals are moving a board to eat best food possible. Animals also grow, breed and finally starve (when run out of food).
+
 ## C# version
 
 It is my first approach to write C# code using only Functional programming (not perfect, but for my current knowledge). Immutability and no dealing with state (no side effects). Yes, **writing in functional style is possible in C#/.NET** (starting with LINQ in .NET 3.5)
