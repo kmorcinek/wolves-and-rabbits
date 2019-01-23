@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using KMorcinek.WolvesAndRabbits.Utils;
 
 namespace KMorcinek.WolvesAndRabbits
 {
@@ -9,12 +10,51 @@ namespace KMorcinek.WolvesAndRabbits
         readonly LettuceField lettuceField;
         readonly RabbitField rabbitField;
         readonly WolfField wolfField;
+        readonly IRandom random;
 
-        public FieldManager(LettuceField lettuceField, RabbitField rabbitField, WolfField wolfField)
+        public FieldManager(LettuceField lettuceField, RabbitField rabbitField, WolfField wolfField, IRandom random)
         {
             this.lettuceField = lettuceField;
             this.wolfField = wolfField;
             this.rabbitField = rabbitField;
+            this.random = random;
+        }
+
+        public Fields CreateRandom()
+        {
+            int size = 10;
+            int rabbitsCount = 39;
+            int wolvesCount = 9;
+
+            int[] rabbitPositions = GetRandomPositions(size, rabbitsCount);
+            int[] wolfPositions = GetRandomPositions(size, wolvesCount);
+
+            return new Fields
+            {
+                Size = size,
+                IterationCount = 0,
+                Lettuces = lettuceField.Create(size),
+                Rabbits = rabbitPositions.Select(x => new Rabbit(x, 10)).ToList(),
+                Wolves = wolfPositions.Select(x => new Wolf(x, 35)).ToList(),
+            };
+        }
+
+        int[] GetRandomPositions(int size, int animalsCount)
+        {
+            int range = LettuceField.GetRange(size);
+
+            HashSet<int> positions = new HashSet<int>();
+
+            while (positions.Count < animalsCount)
+            {
+                int position = random.Next(-range, range);
+                if (positions.Contains(position) == false)
+                {
+                    positions.Add(position);
+                }
+            }
+
+            return positions.ToArray();
         }
 
         public Fields Create()

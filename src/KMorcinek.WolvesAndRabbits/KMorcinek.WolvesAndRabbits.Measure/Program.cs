@@ -12,10 +12,12 @@ namespace KMorcinek.WolvesAndRabbits.Measure
         {
             FullConfiguration configuration = FullConfiguration.CreateDefault();
 
+            IRandom systemRandom = new SystemRandom();
             FieldManager fieldManager = new FieldManager(
-                new LettuceField(new SystemRandom(), configuration.LettuceFieldConfiguration),
+                new LettuceField(systemRandom, configuration.LettuceFieldConfiguration),
                 new RabbitField(configuration.RabbitFieldConfiguration),
-                new WolfField(configuration.WolfFieldConfiguration));
+                new WolfField(configuration.WolfFieldConfiguration),
+                systemRandom);
 
             Fields fields = fieldManager.Create();
 

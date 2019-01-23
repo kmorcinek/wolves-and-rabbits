@@ -10,5 +10,10 @@ namespace KMorcinek.WolvesAndRabbits.Utils
         {
             return random.NextDouble();
         }
+
+        public int Next(int minValue, int maxValue)
+        {
+            return random.Next(minValue, maxValue);
+        }
     }
 }

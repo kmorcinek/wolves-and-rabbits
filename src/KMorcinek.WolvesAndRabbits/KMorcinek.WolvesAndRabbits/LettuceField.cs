@@ -19,12 +19,20 @@ namespace KMorcinek.WolvesAndRabbits
 
         public IEnumerable<Lettuce> Create(int size)
         {
-            int length = (2 * size) + 1;
-            int range = ((length * length) - 1) / 2;
+            int range = GetRange(size);
+
             for (int i = -range; i < range + 1; i++)
             {
                 yield return new Lettuce(i, configuration.StartingFood);
             }
+        }
+
+        public static int GetRange(int size)
+        {
+            int length = (2 * size) + 1;
+            int range = ((length * length) - 1) / 2;
+
+            return range;
         }
 
         public IEnumerable<Lettuce> NextTurn(IEnumerable<Lettuce> lettuces)

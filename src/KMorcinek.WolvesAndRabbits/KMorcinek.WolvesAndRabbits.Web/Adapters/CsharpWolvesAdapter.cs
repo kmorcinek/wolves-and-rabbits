@@ -18,12 +18,14 @@ namespace KMorcinek.WolvesAndRabbits.Web.Adapters
         {
             configuration = configuration ?? FullConfiguration.CreateDefault();
 
+            IRandom systemRandom = new SystemRandom();
             fieldManager = new FieldManager(
-                new LettuceField(new SystemRandom(), configuration.LettuceFieldConfiguration),
+                new LettuceField(systemRandom, configuration.LettuceFieldConfiguration),
                 new RabbitField(configuration.RabbitFieldConfiguration),
-                new WolfField(configuration.WolfFieldConfiguration));
+                new WolfField(configuration.WolfFieldConfiguration),
+                systemRandom);
 
-            fields = fieldManager.Create();
+            fields = fieldManager.CreateRandom();
 
             return new FieldsToTableTranslater().GetData(fields);
         }
