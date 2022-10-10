@@ -8,7 +8,7 @@ public class IndexController : ControllerBase
     [HttpGet("")]
     public ContentResult ConfirmVerify()
     {
-        var html = System.IO.File.ReadAllText(@"./assets/verified.html");
+        var html = System.IO.File.ReadAllText(@"./assets/index.html");
         return base.Content(html, "text/html");
     }
 }

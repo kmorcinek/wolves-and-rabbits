@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+
+    <meta http-equiv="cache-control" content="max-age=0"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+
+    <title>Wolves & Rabbits</title>
+
+<!--    @Html.Raw(@Model.Styles)-->
+
+</head>
+<body ng-app="app">
+<!--@Html.Raw(@Model.BundledVendorScripts)-->
+<script src="/signalr/hubs" type="text/javascript"></script>
+<!--@Html.Raw(@Model.BundledScripts)-->
+
+<h1 class="text-center">Wolves & rabbits</h1>
+
+<div ng-controller="MainCtrl">
+    <div class="col-md-8">
+        <table class="center-table">
+            <tbody>
+            <tr ng-repeat="row in data">
+                <td ng-repeat="color in row" style="background-color: hsl(120,{{color.saturation}}%,50%)">
+                    <img src="/Content/images/rabbit_hare.png" alt="" ng-show="color.l === 'R'" height="25"/>
+                    <img src="/Content/images/wolf.png" alt="" ng-show="color.l === 'W'" height="25"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <input class="btn" type="button" ng-click="nextTurns(1)" value="Next turn"/>
+            <input class="btn" type="button" ng-click="nextTurns(10)" value="Next 10 turn"/>
+            <input class="btn" type="button" ng-click="nextTurns(25)" value="Next 25 turn"/>
+            <input class="btn" type="button" ng-click="nextTurns(100)" value="Next 100 turn"/>
+        </div>
+        <div style="margin: 10px auto;">
+            Current turn: <input disabled="disabled" ng-model="iterationCount"/>
+        </div>
+        <configuration-editor configuration="configuration"
+                              reset-configuration="resetConfiguration()"></configuration-editor>
+    </div>
+</div>
+
+</body>
+</html>
