@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.WolvesAndRabbits"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.WolvesAndRabbits.Tests", "KMorcinek.WolvesAndRabbits.Tests\KMorcinek.WolvesAndRabbits.Tests.csproj", "{4555D45A-4BA2-40F4-A34B-05296BE3FE6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.WolvesAndRabbits.Web", "KMorcinek.WolvesAndRabbits.Web\KMorcinek.WolvesAndRabbits.Web.csproj", "{D596A38C-A785-4990-8C87-2EFA0F93D3AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{4555D45A-4BA2-40F4-A34B-05296BE3FE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4555D45A-4BA2-40F4-A34B-05296BE3FE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4555D45A-4BA2-40F4-A34B-05296BE3FE6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D596A38C-A785-4990-8C87-2EFA0F93D3AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D596A38C-A785-4990-8C87-2EFA0F93D3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D596A38C-A785-4990-8C87-2EFA0F93D3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D596A38C-A785-4990-8C87-2EFA0F93D3AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
