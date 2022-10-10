@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using KMorcinek.WolvesAndRabbits.Configuration;
+﻿using KMorcinek.WolvesAndRabbits.Configuration;
 using KMorcinek.WolvesAndRabbits.Utils;
 using Moq;
-using Xunit;
 
 namespace KMorcinek.WolvesAndRabbits.Tests
 {
@@ -33,8 +29,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
             Lettuce[] lettuces = lettuceField.Create(1).ToArray();
             throw new NotImplementedException();
             
-            // lettuces.Count().ShouldBe(9);
-            Assert.Equal(9, lettuces.Length);
+            lettuces.Count().ShouldBe(9);
             
             //lettuces.Count(p => p.int.X == 1 && p.int.Y == 1).ShouldBe(1);
             //lettuces.Count(p => p.int.X == -1 && p.int.Y == -1).ShouldBe(1);
@@ -48,8 +43,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
 
-            // .ShouldBe(12);
-            Assert.Equal(12, nextLettuces.First().Food);
+            nextLettuces.First().Food.ShouldBe(12);
         }
 
         [Fact]
@@ -61,8 +55,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             foreach (var lettuce in nextLettuces)
             {
-                // lettuce.Food.ShouldBe(12);
-                Assert.Equal(12, lettuce.Food);
+                lettuce.Food.ShouldBe(12);
             }
         }
 
@@ -73,8 +66,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
 
-            // nextLettuces.First().Food.ShouldBe(100);
-            Assert.Equal(100, nextLettuces.First().Food);
+            nextLettuces.First().Food.ShouldBe(100);
         }
     }
 }

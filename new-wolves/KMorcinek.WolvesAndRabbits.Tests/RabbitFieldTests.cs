@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using KMorcinek.WolvesAndRabbits.Configuration;
-using Xunit;
-// using KMorcinek.WolvesAndRabbits.Tests.ShouldExtensions;
+﻿using KMorcinek.WolvesAndRabbits.Configuration;
 
 namespace KMorcinek.WolvesAndRabbits.Tests
 {
