@@ -7,7 +7,7 @@ namespace KMorcinek.WolvesAndRabbits.Web.Controllers;
 [ApiController]
 public class IndexController : ControllerBase
 {
-    readonly IWolvesAdapter _wolvesAdapter = new CsharpWolvesAdapter();
+    readonly IWolvesAdapter _wolvesAdapter = new FsharpWolvesAdapter();
 
     [HttpGet("next-turn")]
     public ActionResult<string> GetNextTurn()

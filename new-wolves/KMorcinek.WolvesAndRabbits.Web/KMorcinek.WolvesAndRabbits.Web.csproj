@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="FSharp.Core" Version="6.0.6" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
@@ -15,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\KMorcinek.WolvesAndRabbits.FSharp\KMorcinek.WolvesAndRabbits.FSharp.fsproj" />
       <ProjectReference Include="..\KMorcinek.WolvesAndRabbits\KMorcinek.WolvesAndRabbits.csproj" />
     </ItemGroup>
 
