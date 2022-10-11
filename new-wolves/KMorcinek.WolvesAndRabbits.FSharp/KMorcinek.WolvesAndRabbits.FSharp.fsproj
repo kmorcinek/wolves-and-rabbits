@@ -11,7 +11,14 @@
         <Compile Include="Rabbit.fs" />
         <Compile Include="Runner.fs" />
         <Compile Include="FsharpFieldManager.fs" />
+        <Compile Include="LettuceTests.fs" />
+        <Compile Include="RabbitTests.fs" />
         <Compile Include="Program.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+      <PackageReference Include="xunit" Version="2.4.2" />
     </ItemGroup>
 
 </Project>
