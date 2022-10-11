@@ -16,9 +16,6 @@
 
 </head>
 <body ng-app="app">
-<!--@Html.Raw(@Model.BundledVendorScripts)-->
-<script src="/signalr/hubs" type="text/javascript"></script>
-<!--@Html.Raw(@Model.BundledScripts)-->
 
 <h1 class="text-center">Wolves & rabbits</h1>
 
@@ -26,12 +23,12 @@
     <div class="col-md-8">
         <table class="center-table">
             <tbody>
-            <tr ng-repeat="row in data">
-                <td ng-repeat="color in row" style="background-color: hsl(120,{{color.saturation}}%,50%)">
-                    <img src="/Content/images/rabbit_hare.png" alt="" ng-show="color.l === 'R'" height="25"/>
-                    <img src="/Content/images/wolf.png" alt="" ng-show="color.l === 'W'" height="25"/>
-                </td>
-            </tr>
+<!--            <tr ng-repeat="row in data">-->
+<!--                <td ng-repeat="color in row" style="background-color: hsl(120,{{color.saturation}}%,50%)">-->
+<!--                    <img src="/Content/images/rabbit_hare.png" alt="" ng-show="color.l === 'R'" height="25"/>-->
+<!--                    <img src="/Content/images/wolf.png" alt="" ng-show="color.l === 'W'" height="25"/>-->
+<!--                </td>-->
+<!--            </tr>-->
             </tbody>
         </table>
     </div>
