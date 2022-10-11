@@ -13,9 +13,10 @@ It is my first approach to write C# code using only Functional programming (not 
 The case of [Cellular automaton] I guess is less efficient in functional approach than object oriented (not sure). So yes, my code can be inefficient.
 
 Todos:
-  - Some implementations from FieldBase (*AddNewBorns()*, *GetAlive()*, ...) should be probably moved to other class as static methods easy for testability. Not sure yet how to deal with inheritance.
-  - Interface method *IFood Create(Position position, double food);* should be moved to a factory.
-  - *NeighborhoodGenerator* should use Dictionary<Position, Positions[]>
+
+- Some implementations from FieldBase (*AddNewBorns()*, *GetAlive()*, ...) should be probably moved to other class as static methods easy for testability. Not sure yet how to deal with inheritance.
+- Interface method *IFood Create(Position position, double food);* should be moved to a factory.
+- *NeighborhoodGenerator* should use Dictionary<Position, Positions[]>
 
 ## F# version
 
@@ -23,9 +24,6 @@ Later rewritten whole app to F#.
 
 ## Demo
 
-[Web version of Wolves and rabbits]
-
-
+(Currently rewriting to .NET Core and Azure)
 
 [Cellular automaton]:http://en.wikipedia.org/wiki/Cellular_automaton
-[Web version of Wolves and rabbits]:http://wolves-and-rabbits.krzysztofmorcinek.com/
