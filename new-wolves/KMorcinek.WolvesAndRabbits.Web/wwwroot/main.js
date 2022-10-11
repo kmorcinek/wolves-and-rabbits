@@ -7,16 +7,98 @@ $(document).ready(function () {
 
     // let counter = -1;
     //
+    function buildTable(bookDetails) {
+
+        var parentDiv = $("#parentHolder");
+        parentDiv.html("");
+        var aTable = $("<table>", {
+            "id": "newTable"
+        }).appendTo(parentDiv);
+        var rowCount = bookDetails.length;
+        var colmCount = bookDetails[0].length;
+
+        // For loop for adding header .i.e th to our table
+        // for (var k = 0; k < 1; k++) {
+        //     var fragTrow = $("<tr>", {
+        //         "class": "trClass"
+        //     }).appendTo(aTable);
+        //     for (var j = 0; j < colmCount; j++) {
+        //         // let bookDetailElement = bookDetails[k][j];
+        //         let bookDetailElement = ""
+        //         $("<th>", {
+        //             "class": "thClass"
+        //         }).prependTo(fragTrow).html(bookDetailElement);
+        //     }
+        // }
+
+        //For loop for adding data .i.e td with data to our dynamic generated table
+        for (var i = 1; i < rowCount; i < i++) {
+            var fragTrow = $("<tr>", {
+                "class": "trClass"
+            }).appendTo(aTable);
+            for (var j = 0; j < colmCount; j++) {
+                const cell = bookDetails[i][j];
+                let cellContent = 's';
+                if (cell.l === "R") {
+                    cellContent = '<img src="/images/rabbit_hare.png" alt="" height="25"/>';
+                } else if (cell.l === "W") {
+                    cellContent = '<img src="/images/wolf.png" alt="" height="25"/>';
+                }
+
+                $("<td>", {
+                    "class": "tdClass"
+                }).appendTo(fragTrow).html(cellContent);
+            }
+        }
+    }
+
+    $("#btn-build-table").on('click', function (e) {
+        e.preventDefault();
+        alert(1);
+        var parentDiv = $("#parentHolder");
+        parentDiv.html("");
+        var aTable = $("<table>", {
+            "id": "newTable"
+        }).appendTo(parentDiv);
+        var rowCount = bookDetails.length;
+        var colmCount = bookDetails[0].length;
+
+        // For loop for adding header .i.e th to our table
+        for (var k = 0; k < 1; k++) {
+            var fragTrow = $("<tr>", {
+                "class": "trClass"
+            }).appendTo(aTable);
+            for (var j = 0; j < colmCount; j++) {
+                $("<th>", {
+                    "class": "thClass"
+                }).prependTo(fragTrow).html(bookDetails[k][j]);
+            }
+        }
+
+        //For loop for adding data .i.e td with data to our dynamic generated table
+        for (var i = 1; i < rowCount; i < i++) {
+            var fragTrow = $("<tr>", {
+                "class": "trClass"
+            }).appendTo(aTable);
+            for (var j = 0; j < colmCount; j++) {
+                $("<td>", {
+                    "class": "tdClass"
+                }).appendTo(fragTrow).html(bookDetails[i][j]);
+            }
+        }
+    });
+
     $("#btn-next-1-turn").click(function () {
         console.log("button ready!");
-        
+
         $.get("next-turn", {name: "John", time: "2pm"})
             .done(function (data) {
                 console.log("Data Loaded: ", data);
                 const cellsData = JSON.parse(data);
                 $('#txt-current-turn').val(cellsData.iterationCount);
+                buildTable(cellsData.cellArrays);
             });
-        
+
 
         // counter++;
         // const citation = citations[counter % citations.length];

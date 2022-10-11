@@ -18,8 +18,4 @@
       <ProjectReference Include="..\KMorcinek.WolvesAndRabbits\KMorcinek.WolvesAndRabbits.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="wwwroot\images" />
-    </ItemGroup>
-
 </Project>
