@@ -22,9 +22,9 @@ namespace KMorcinek.WolvesAndRabbits
 
         public Fields CreateRandom()
         {
-            int size = 2;
-            int rabbitsCount = 1;
-            int wolvesCount = 1;
+            int size = 10;
+            int rabbitsCount = 39;
+            int wolvesCount = 9;
 
             int[] rabbitPositions = GetRandomPositions(size, rabbitsCount);
             int[] wolfPositions = GetRandomPositions(size, wolvesCount);
