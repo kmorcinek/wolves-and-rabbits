@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using KMorcinek.WolvesAndRabbits.Configuration;
+﻿using KMorcinek.WolvesAndRabbits.Configuration;
 
 namespace KMorcinek.WolvesAndRabbits
 {

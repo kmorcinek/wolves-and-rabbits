@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace KMorcinek.WolvesAndRabbits
 {
     public class Fields

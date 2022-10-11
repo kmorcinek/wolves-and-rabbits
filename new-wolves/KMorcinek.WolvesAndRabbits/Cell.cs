@@ -1,5 +1,3 @@
-using System;
-
 namespace KMorcinek.WolvesAndRabbits
 {
     public struct Cell

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace KMorcinek.WolvesAndRabbits
+﻿namespace KMorcinek.WolvesAndRabbits
 {
     public class NeighborhoodGenerator
     {

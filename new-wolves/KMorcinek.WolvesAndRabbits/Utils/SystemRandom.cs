@@ -1,5 +1,3 @@
-using System;
-
 namespace KMorcinek.WolvesAndRabbits.Utils
 {
     public class SystemRandom : IRandom
