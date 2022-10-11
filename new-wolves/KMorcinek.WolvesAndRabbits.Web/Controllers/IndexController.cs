@@ -17,6 +17,13 @@ public class IndexController : ControllerBase
         return JsonSerializer.Serialize(nextTurn
         , new JsonSerializerOptions { WriteIndented = true });
     }
+    
+    [HttpGet("reset")]
+    public void Reset()
+    {
+        _wolvesAdapter.Reset(null);
+    }
+    
     // [HttpGet("")]
     // public ContentResult ConfirmVerify()
     // {

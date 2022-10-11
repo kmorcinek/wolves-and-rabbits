@@ -1,8 +1,4 @@
-// import citations from 'https://gist.githubusercontent.com/kmorcinek/83c20fe5044ce27abb15d11322678f11/raw/528f6ae671e7c46bc523723994db2db46e4f118f/citations.json' assert { type: 'json' };
-
 $(document).ready(function () {
-    console.log("ready!");
-
     function buildTable(bookDetails) {
 
         var parentDiv = $("#parentHolder");
@@ -82,12 +78,18 @@ $(document).ready(function () {
         getNextTurns(25);
     });
 
+    $("#btn-reset").click(function () {
+        $.get("reset")
+            .done(function () {
+                console.log("reset done")
+            });
+    });
+
     const getNextTurns = function (leftTurns) {
         leftTurns -= 1;
         
         $.get("next-turn")
             .done(function (data) {
-                // console.log("Data Loaded: ", data);
                 const cellsData = JSON.parse(data);
                 $('#txt-current-turn').val(cellsData.iterationCount);
                 buildTable(cellsData.cellArrays);
@@ -98,18 +100,5 @@ $(document).ready(function () {
                 
                 getNextTurns(leftTurns);
             });
-
-        // fieldHub.server.getNextTurn().done(function (nextTurn) {
-        //     $scope.$apply(function() {
-        //         $scope.data = nextTurn.cellArrays;
-        //         $scope.iterationCount = nextTurn.iterationCount;
-        //     });
-        //
-        //     if (leftTurns === 0) {
-        //         return;
-        //     }
-        //
-        //     getNextTurns(leftTurns);
-        // });
     };
 });
