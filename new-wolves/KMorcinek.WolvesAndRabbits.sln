@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.WolvesAndRabbits.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.WolvesAndRabbits.Web", "KMorcinek.WolvesAndRabbits.Web\KMorcinek.WolvesAndRabbits.Web.csproj", "{D596A38C-A785-4990-8C87-2EFA0F93D3AD}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "KMorcinek.WolvesAndRabbits.FSharp", "KMorcinek.WolvesAndRabbits.FSharp\KMorcinek.WolvesAndRabbits.FSharp.fsproj", "{DE1A96C9-80E2-4892-9AE7-53E6C7B494BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{D596A38C-A785-4990-8C87-2EFA0F93D3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D596A38C-A785-4990-8C87-2EFA0F93D3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D596A38C-A785-4990-8C87-2EFA0F93D3AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE1A96C9-80E2-4892-9AE7-53E6C7B494BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE1A96C9-80E2-4892-9AE7-53E6C7B494BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE1A96C9-80E2-4892-9AE7-53E6C7B494BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE1A96C9-80E2-4892-9AE7-53E6C7B494BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
