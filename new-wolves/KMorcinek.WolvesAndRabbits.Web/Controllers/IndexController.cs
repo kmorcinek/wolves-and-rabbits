@@ -13,9 +13,7 @@ public class IndexController : ControllerBase
     public ActionResult<string> GetNextTurn()
     {
         var nextTurn = _wolvesAdapter.GetNextTurn();
-        // return nextTurn;
-        return JsonSerializer.Serialize(nextTurn
-        , new JsonSerializerOptions { WriteIndented = true });
+        return JsonSerializer.Serialize(nextTurn);
     }
     
     [HttpGet("reset")]
@@ -23,18 +21,4 @@ public class IndexController : ControllerBase
     {
         _wolvesAdapter.Reset(null);
     }
-    
-    // [HttpGet("")]
-    // public ContentResult ConfirmVerify()
-    // {
-    //     var html = System.IO.File.ReadAllText(@"~/index.html");
-    //     return base.Content(html, "text/html");
-    // }
-
-    // [HttpGet("main.js")]
-    // public ContentResult MainJs()
-    // {
-    //     var html = System.IO.File.ReadAllText(@"./assets/main.js");
-    //     return base.Content(html, "text/html");
-    // }
 }
