@@ -16,7 +16,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\KMorcinek.WolvesAndRabbits.FSharp\KMorcinek.WolvesAndRabbits.FSharp.fsproj" />
       <ProjectReference Include="..\KMorcinek.WolvesAndRabbits\KMorcinek.WolvesAndRabbits.csproj" />
     </ItemGroup>
 
