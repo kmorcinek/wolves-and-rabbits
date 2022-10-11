@@ -13,7 +13,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "launchUrl": "next-turn",
+      "launchUrl": "index.html",
       "applicationUrl": "https://localhost:7014;http://localhost:5060",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

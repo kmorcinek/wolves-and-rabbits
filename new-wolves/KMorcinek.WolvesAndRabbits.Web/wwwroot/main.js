@@ -9,9 +9,15 @@ $(document).ready(function () {
     //
     $("#btn-next-1-turn").click(function () {
         console.log("button ready!");
-
-        $('#txt-current-turn').val('11');
         
+        $.get("next-turn", {name: "John", time: "2pm"})
+            .done(function (data) {
+                // console.log("Data Loaded: ", data);
+                console.log("iterationCount: ", data.iterationCount);
+                $('#txt-current-turn').val(data.iterationCount);
+            });
+        
+
         // counter++;
         // const citation = citations[counter % citations.length];
         //
