@@ -13,7 +13,6 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="module" src="main.js"></script>
-<!--    @Html.Raw(@Model.Styles)-->
 
 </head>
 <body ng-app="app">
@@ -38,13 +37,13 @@
     </div>
     <div class="col-md-4">
         <div>
-            <input class="btn" type="button" ng-click="nextTurns(1)" value="Next turn"/>
+            <input class="btn" type="button" id="btn-next-1-turn" ng-click="nextTurns(1)" value="Next turn"/>
             <input class="btn" type="button" ng-click="nextTurns(10)" value="Next 10 turn"/>
             <input class="btn" type="button" ng-click="nextTurns(25)" value="Next 25 turn"/>
             <input class="btn" type="button" ng-click="nextTurns(100)" value="Next 100 turn"/>
         </div>
         <div style="margin: 10px auto;">
-            Current turn: <input disabled="disabled" ng-model="iterationCount"/>
+            Current turn: <input disabled="disabled" id="txt-current-turn" ng-model="iterationCount"/>
         </div>
         <configuration-editor configuration="configuration"
                               reset-configuration="resetConfiguration()"></configuration-editor>

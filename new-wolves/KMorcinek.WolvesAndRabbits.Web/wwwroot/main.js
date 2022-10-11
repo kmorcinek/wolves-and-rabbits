@@ -7,23 +7,27 @@ $(document).ready(function () {
 
     // let counter = -1;
     //
-    // $("#what-button").click(function () {
-    //     counter++;
-    //     const citation = citations[counter % citations.length];
-    //
-    //     const citationText = "\"" + citation.phrase + "\"";
-    //
-    //     $("#citation").text(citationText);
-    //     let imageUrl = citation.imageUrl
-    //     const imageUrlFromStorage = getCitationImage(citation.phrase);
-    //
-    //     if (imageUrlFromStorage) {
-    //         imageUrl = imageUrlFromStorage
-    //     }
-    //     setImageUrl(imageUrl);
-    //
-    //     $("#assign-image").removeAttr("disabled");
-    // });
+    $("#btn-next-1-turn").click(function () {
+        console.log("button ready!");
+
+        $('#txt-current-turn').val('11');
+        
+        // counter++;
+        // const citation = citations[counter % citations.length];
+        //
+        // const citationText = "\"" + citation.phrase + "\"";
+        //
+        // $("#citation").text(citationText);
+        // let imageUrl = citation.imageUrl
+        // const imageUrlFromStorage = getCitationImage(citation.phrase);
+        //
+        // if (imageUrlFromStorage) {
+        //     imageUrl = imageUrlFromStorage
+        // }
+        // setImageUrl(imageUrl);
+        //
+        // $("#assign-image").removeAttr("disabled");
+    });
     //
     // $("#assign-image").click(function () {
     //     const citation = citations[counter % citations.length];
