@@ -12,9 +12,9 @@ $(document).ready(function () {
         
         $.get("next-turn", {name: "John", time: "2pm"})
             .done(function (data) {
-                // console.log("Data Loaded: ", data);
-                console.log("iterationCount: ", data.iterationCount);
-                $('#txt-current-turn').val(data.iterationCount);
+                console.log("Data Loaded: ", data);
+                const cellsData = JSON.parse(data);
+                $('#txt-current-turn').val(cellsData.iterationCount);
             });
         
 
