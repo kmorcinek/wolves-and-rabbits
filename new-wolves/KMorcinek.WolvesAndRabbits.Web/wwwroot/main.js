@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    function clearTable() {
+        $("#parentHolder").html("");
+    }
+    
     function buildTable(bookDetails) {
 
         var parentDiv = $("#parentHolder");
@@ -30,42 +34,6 @@ $(document).ready(function () {
         }
     }
 
-    $("#btn-build-table").on('click', function (e) {
-        e.preventDefault();
-        alert(1);
-        var parentDiv = $("#parentHolder");
-        parentDiv.html("");
-        var aTable = $("<table>", {
-            "id": "newTable"
-        }).appendTo(parentDiv);
-        var rowCount = bookDetails.length;
-        var colmCount = bookDetails[0].length;
-
-        // For loop for adding header .i.e th to our table
-        for (var k = 0; k < 1; k++) {
-            var fragTrow = $("<tr>", {
-                "class": "trClass"
-            }).appendTo(aTable);
-            for (var j = 0; j < colmCount; j++) {
-                $("<th>", {
-                    "class": "thClass"
-                }).prependTo(fragTrow).html(bookDetails[k][j]);
-            }
-        }
-
-        //For loop for adding data .i.e td with data to our dynamic generated table
-        for (var i = 1; i < rowCount; i < i++) {
-            var fragTrow = $("<tr>", {
-                "class": "trClass"
-            }).appendTo(aTable);
-            for (var j = 0; j < colmCount; j++) {
-                $("<td>", {
-                    "class": "tdClass"
-                }).appendTo(fragTrow).html(bookDetails[i][j]);
-            }
-        }
-    });
-
     $("#btn-next-1-turn").click(function () {
         getNextTurns(1);
     });
@@ -81,7 +49,8 @@ $(document).ready(function () {
     $("#btn-reset").click(function () {
         $.get("reset")
             .done(function () {
-                console.log("reset done")
+                console.log("reset done");
+                clearTable();
             });
     });
 
