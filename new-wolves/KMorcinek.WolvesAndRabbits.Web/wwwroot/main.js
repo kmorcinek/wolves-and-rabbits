@@ -29,7 +29,8 @@ $(document).ready(function () {
                 }
 
                 $("<td>", {
-                    "class": "tdClass"
+                    "class": "tdClass",
+                    "style": `background-color: hsl(120,${cell.saturation}%,50%)`
                 }).appendTo(fragTrow).html(cellContent);
             }
         }
