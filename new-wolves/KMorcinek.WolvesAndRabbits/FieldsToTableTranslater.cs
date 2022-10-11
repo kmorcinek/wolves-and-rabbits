@@ -1,14 +1,25 @@
 ﻿namespace KMorcinek.WolvesAndRabbits
 {
+    public class CellsData
+    {
+        public Cell[][] cellArrays { get; }
+        public int iterationCount { get; }
+
+        public CellsData(Cell[][] cellArrays, int iterationCount)
+        {
+            this.cellArrays = cellArrays;
+            this.iterationCount = iterationCount;
+        }
+    }
+
     public class FieldsToTableTranslater
     {
-        public dynamic GetData(Fields fields)
+        public CellsData GetData(Fields fields)
         {
-            return new
-            {
-                cellArrays = GetCellArrays(fields),
-                iterationCount = fields.IterationCount,
-            };
+            return new CellsData(
+                GetCellArrays(fields),
+                fields.IterationCount
+            );
         }
 
         private static Cell[][] GetCellArrays(Fields fields)

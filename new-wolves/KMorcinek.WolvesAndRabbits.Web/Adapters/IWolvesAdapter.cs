@@ -4,7 +4,7 @@ namespace KMorcinek.WolvesAndRabbits.Web.Adapters
 {
     internal interface IWolvesAdapter
     {
-        dynamic GetNextTurn();
+        CellsData GetNextTurn();
         dynamic Reset(FullConfiguration configuration);
     }
 }

@@ -8,8 +8,12 @@ namespace KMorcinek.WolvesAndRabbits.Web.Adapters
         static FieldManager fieldManager;
         static Fields fields;
 
-        public dynamic GetNextTurn()
+        public CellsData GetNextTurn()
         {
+            if (fieldManager == null)
+            {
+                Reset(null);
+            }
             fields = fieldManager.GetNextTurn(fields);
             return new FieldsToTableTranslater().GetData(fields);
         }
