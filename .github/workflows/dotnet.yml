@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore new-wolves
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build new-wolves --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test new-wolves --no-build --verbosity normal
