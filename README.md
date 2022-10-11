@@ -24,6 +24,10 @@ Later rewritten whole app to F#.
 
 ## Demo
 
-(Currently rewriting to .NET Core and Azure)
+(Currently rewriting to .NET Core and Azure, so not everything is moved yet)
+
+[Web version of Wolves and rabbits]
 
 [Cellular automaton]:http://en.wikipedia.org/wiki/Cellular_automaton
+
+[Web version of Wolves and rabbits]:https://wolves-and-rabbits.azurewebsites.net/index.html
