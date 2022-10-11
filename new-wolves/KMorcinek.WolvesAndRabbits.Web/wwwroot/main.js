@@ -1,17 +1,18 @@
 $(document).ready(function () {
     function clearTable() {
         $("#parentHolder").html("");
+        $('#txt-current-turn').val("");
     }
     
-    function buildTable(bookDetails) {
+    function buildTable(cells) {
 
         var parentDiv = $("#parentHolder");
         parentDiv.html("");
         var aTable = $("<table>", {
             "id": "newTable"
         }).appendTo(parentDiv);
-        var rowCount = bookDetails.length;
-        var colmCount = bookDetails[0].length;
+        var rowCount = cells.length;
+        var colmCount = cells[0].length;
 
         //For loop for adding data .i.e td with data to our dynamic generated table
         for (var i = 1; i < rowCount; i < i++) {
@@ -19,7 +20,7 @@ $(document).ready(function () {
                 "class": "trClass"
             }).appendTo(aTable);
             for (var j = 0; j < colmCount; j++) {
-                const cell = bookDetails[i][j];
+                const cell = cells[i][j];
                 let cellContent = '<span>&nbsp;</span>';
                 if (cell.l === "R") {
                     cellContent = '<img src="/images/rabbit_hare.png" alt="" height="25"/>';
