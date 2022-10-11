@@ -23,7 +23,7 @@ $(document).ready(function () {
                 const cell = cells[i][j];
                 let cellContent = '<span>&nbsp;</span>';
                 if (cell.l === "R") {
-                    cellContent = '<img src="/images/rabbit_hare.png" alt="" height="25"/>';
+                    cellContent = '<img src="/images/rabbit.png" alt="" height="25"/>';
                 } else if (cell.l === "W") {
                     cellContent = '<img src="/images/wolf.png" alt="" height="25"/>';
                 }
