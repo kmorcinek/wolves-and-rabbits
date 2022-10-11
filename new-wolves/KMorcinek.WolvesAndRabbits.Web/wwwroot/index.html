@@ -15,11 +15,11 @@
     <script type="module" src="main.js"></script>
 
 </head>
-<body ng-app="app">
+<body>
 
 <h1 class="text-center">Wolves & rabbits</h1>
 
-<div ng-controller="MainCtrl">
+<div>
     <div class="col-md-4">
         <div>
             <input class="btn" type="button" id="btn-next-1-turn" value="Next turn"/>
@@ -30,7 +30,7 @@
             <input class="btn" type="button" id="btn-reset" value="Reset simulation"/>
         </div>
         <div style="margin: 10px auto;">
-            Current turn: <input disabled="disabled" id="txt-current-turn" ng-model="iterationCount"/>
+            Current turn: <input disabled="disabled" id="txt-current-turn"/>
         </div>
         <configuration-editor configuration="configuration"
                               reset-configuration="resetConfiguration()"></configuration-editor>
@@ -38,26 +38,6 @@
     <div class="col-md-8">
         <div id="parentHolder">
         </div>
-<!--        <table id="cells" class="center-table">-->
-<!--        </table>-->
-<!--        <table class="center-table">-->
-<!--            <tbody>-->
-<!--            <tr>-->
-<!--                <td>-->
-<!--                    <img src="/images/rabbit_hare.png" alt="" height="25"/>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    <img src="/images/wolf.png" alt="" height="25"/>-->
-<!--                </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td>-->
-<!--                    <img src="/images/rabbit_hare.png" alt="" height="25"/>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    <img src="/images/wolf.png" alt="" height="25"/>-->
-<!--                </td>-->
-<!--            </tr>-->
 <!--&lt;!&ndash;            <tr ng-repeat="row in data">&ndash;&gt;-->
 <!--&lt;!&ndash;                <td ng-repeat="color in row" style="background-color: hsl(120,{{color.saturation}}%,50%)">&ndash;&gt;-->
 <!--&lt;!&ndash;                    <img src="/images/rabbit_hare.png" alt="" ng-show="color.l === 'R'" height="25"/>&ndash;&gt;-->
