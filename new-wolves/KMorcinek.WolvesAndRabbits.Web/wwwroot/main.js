@@ -59,9 +59,8 @@ $(document).ready(function () {
     const getNextTurns = function (leftTurns) {
         leftTurns -= 1;
         
-        $.get("next-turn")
-            .done(function (data) {
-                const cellsData = JSON.parse(data);
+        $.getJSON("next-turn")
+            .done(function (cellsData ) {
                 $('#txt-current-turn').val(cellsData.iterationCount);
                 buildTable(cellsData.cellArrays);
 
