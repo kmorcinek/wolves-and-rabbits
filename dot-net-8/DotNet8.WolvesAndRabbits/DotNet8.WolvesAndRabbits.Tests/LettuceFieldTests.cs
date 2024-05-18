@@ -69,7 +69,8 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
 
-            nextLettuces.First().Food.ShouldBe(100);
+            // nextLettuces.First().Food.ShouldBe(100);
+            Assert.Equal(100, nextLettuces.First().Food);
         }
     }
 }
