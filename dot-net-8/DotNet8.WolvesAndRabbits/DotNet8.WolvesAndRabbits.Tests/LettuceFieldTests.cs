@@ -28,39 +28,39 @@ namespace KMorcinek.WolvesAndRabbits.Tests
             lettuceField = new LettuceField(mock.Object, configuration);
         }
 
-        // [Fact]
-        // public void CreateWithSizeOne()
-        // {
-        //     Lettuce[] lettuces = lettuceField.Create(1).ToArray();
-        //     throw new NotImplementedException();
-        //     lettuces.Count().ShouldBe(9);
-        //     //lettuces.Count(p => p.int.X == 1 && p.int.Y == 1).ShouldBe(1);
-        //     //lettuces.Count(p => p.int.X == -1 && p.int.Y == -1).ShouldBe(1);
-        //     //lettuces.Count(p => p.int.X == 1 && p.int.Y == -1).ShouldBe(1);
-        // }
+        [Fact]
+        public void CreateWithSizeOne()
+        {
+            Lettuce[] lettuces = lettuceField.Create(1).ToArray();
+            throw new NotImplementedException();
+            lettuces.Count().ShouldBe(9);
+            //lettuces.Count(p => p.int.X == 1 && p.int.Y == 1).ShouldBe(1);
+            //lettuces.Count(p => p.int.X == -1 && p.int.Y == -1).ShouldBe(1);
+            //lettuces.Count(p => p.int.X == 1 && p.int.Y == -1).ShouldBe(1);
+        }
 
-        // [Fact]
-        // public void NextTurnOneLettuceGrows()
-        // {
-        //     List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 10) });
-        //
-        //     IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
-        //
-        //     nextLettuces.First().Food.ShouldBe(12);
-        // }
+        [Fact]
+        public void NextTurnOneLettuceGrows()
+        {
+            List<Lettuce> lettuces = new List<Lettuce>(new[] { new Lettuce(0, 10) });
 
-        // [Fact]
-        // public void NextTurnAllLettucesGrow()
-        // {
-        //     IEnumerable<Lettuce> lettuces = lettuceField.Create(1);
-        //
-        //     IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
-        //
-        //     foreach (var lettuce in nextLettuces)
-        //     {
-        //         lettuce.Food.ShouldBe(12);
-        //     }
-        // }
+            IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
+
+            nextLettuces.First().Food.ShouldBe(12);
+        }
+
+        [Fact]
+        public void NextTurnAllLettucesGrow()
+        {
+            IEnumerable<Lettuce> lettuces = lettuceField.Create(1);
+
+            IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
+
+            foreach (var lettuce in nextLettuces)
+            {
+                lettuce.Food.ShouldBe(12);
+            }
+        }
 
         [Fact]
         public void LettuceCannotGrowMoreThanMaximum()
