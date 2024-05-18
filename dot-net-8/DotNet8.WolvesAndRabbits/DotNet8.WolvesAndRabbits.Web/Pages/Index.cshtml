@@ -4,7 +4,31 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1 class="text-center">Wolves & rabbits</h1>
+
+<div ng-controller="MainCtrl">
+    <div class="col-md-8">
+        <table class="center-table">
+            <tbody>
+            <tr ng-repeat="row in data">
+                <td ng-repeat="color in row" style="background-color: hsl(120,{{color.saturation}}%,50%)">
+                    <img src="/Content/images/rabbit_hare.png" alt="" ng-show="color.l === 'R'" height="25" />
+                    <img src="/Content/images/wolf.png" alt="" ng-show="color.l === 'W'" height="25" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <input class="btn" type="button" ng-click="nextTurns(1)" value="Next turn" />
+            <input class="btn" type="button" ng-click="nextTurns(10)" value="Next 10 turn" />
+            <input class="btn" type="button" ng-click="nextTurns(25)" value="Next 25 turn" />
+            <input class="btn" type="button" ng-click="nextTurns(100)" value="Next 100 turn" />
+        </div>
+        <div style="margin: 10px auto;"> 
+            Current turn: <input disabled="disabled" ng-model="iterationCount" />
+        </div>
+        <configuration-editor configuration="configuration" reset-configuration="resetConfiguration()"></configuration-editor>
+    </div>
 </div>
