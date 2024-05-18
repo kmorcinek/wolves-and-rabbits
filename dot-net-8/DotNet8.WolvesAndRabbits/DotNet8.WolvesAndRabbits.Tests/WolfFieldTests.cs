@@ -2,7 +2,6 @@
 using System.Linq;
 using KMorcinek.WolvesAndRabbits.Configuration;
 using Xunit;
-using Xunit.Should;
 
 namespace KMorcinek.WolvesAndRabbits.Tests
 {
@@ -14,51 +13,51 @@ namespace KMorcinek.WolvesAndRabbits.Tests
         });
 
         [Fact]
-        void GivenOneRabbitInWolfNeighborhood_WolfEatsWholeRabbit()
+        public void GivenOneRabbitInWolfNeighborhood_WolfEatsWholeRabbit()
         {
-            List<Rabbit> rabbits = new List<Rabbit>(new[] { new Rabbit(-20, 10) });
+            List<Rabbit> rabbits = new List<Rabbit> { new Rabbit(-20, 10) };
 
             Wolf wolf = new Wolf(0, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 
-            fieldWithRabbit.Item2.Food.ShouldBe(10 + 10);
+            Assert.Equal(20, fieldWithRabbit.Item2.Food);
         }
 
         [Fact]
-        void GivenOneRabbitInWolfNeighborhood_WolfKillsRabbit()
+        public void GivenOneRabbitInWolfNeighborhood_WolfKillsRabbit()
         {
-            List<Rabbit> rabbits = new List<Rabbit>(new[] { new Rabbit(-20, 10) });
+            List<Rabbit> rabbits = new List<Rabbit> { new Rabbit(-20, 10) };
 
             Wolf wolf = new Wolf(0, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 
-            fieldWithRabbit.Item1.Count().ShouldBe(0);
+            Assert.Equal(0, fieldWithRabbit.Item1.Count());
         }
 
         [Fact]
-        void GivenRabbitsOutsideOfWolfNeighborhood_WolfDoesNotEat()
+        public void GivenRabbitsOutsideOfWolfNeighborhood_WolfDoesNotEat()
         {
-            List<Rabbit> rabbits = new List<Rabbit>(new[] { new Rabbit(1, 10) });
+            List<Rabbit> rabbits = new List<Rabbit> { new Rabbit(1, 10) };
 
             Wolf wolf = new Wolf(-1, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 
-            fieldWithRabbit.Item2.Food.ShouldBe(10);
+            Assert.Equal(10, fieldWithRabbit.Item2.Food);
         }
 
         [Fact]
-        void GivenNoRabbits_WolfDoesNotEat()
+        public void GivenNoRabbits_WolfDoesNotEat()
         {
             IEnumerable<Rabbit> rabbits = Enumerable.Empty<Rabbit>();
 
             Wolf wolf = new Wolf(0, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 
-            fieldWithRabbit.Item2.Food.ShouldBe(10);
+            Assert.Equal(10, fieldWithRabbit.Item2.Food);
         }
 
         [Fact]
-        void GivenNoRabbits_WolfMovesDoesNotMove()
+        public void GivenNoRabbits_WolfDoesNotMove()
         {
             IEnumerable<Rabbit> rabbits = Enumerable.Empty<Rabbit>();
 
@@ -66,7 +65,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
             Wolf wolf = new Wolf(wolfStartingPosition, 10);
             var fieldWithRabbit = wolfField.PredatorMovesAndEatsOnlyBestPrey(rabbits, wolf);
 
-            fieldWithRabbit.Item2.Position.ShouldBe(wolfStartingPosition);
+            Assert.Equal(wolfStartingPosition, fieldWithRabbit.Item2.Position);
         }
     }
 }
