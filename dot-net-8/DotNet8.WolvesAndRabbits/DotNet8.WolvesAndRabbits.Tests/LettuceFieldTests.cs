@@ -46,7 +46,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             IEnumerable<Lettuce> nextLettuces = lettuceField.NextTurn(lettuces);
 
-            nextLettuces.First().Food.ShouldBe(12);
+            Assert.Equal(12, nextLettuces.First().Food);
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace KMorcinek.WolvesAndRabbits.Tests
 
             foreach (var lettuce in nextLettuces)
             {
-                lettuce.Food.ShouldBe(12);
+                Assert.Equal(12, lettuce.Food);
             }
         }
 
