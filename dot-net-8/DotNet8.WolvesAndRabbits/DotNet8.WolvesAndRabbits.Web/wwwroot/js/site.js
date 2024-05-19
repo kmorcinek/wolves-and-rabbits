@@ -10,7 +10,7 @@ angular.module('app').controller('MainCtrl',
 
                 $(document).ready(function () {
                     $.ajax({
-                        url: '/api/next-game',
+                        url: '/api/next-turn',
                         type: 'GET',
                         success: function (nextTurn) {
                             $scope.$apply(function () {

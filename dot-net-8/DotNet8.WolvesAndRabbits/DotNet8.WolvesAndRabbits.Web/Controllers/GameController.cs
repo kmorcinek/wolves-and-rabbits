@@ -15,7 +15,7 @@ namespace DotNet8.WolvesAndRabbits.Web.Controllers
             wolvesAdapter.Reset(null);
         }
 
-        [HttpGet("next-game")]
+        [HttpGet("next-turn")]
         public dynamic Get()
         {
             return wolvesAdapter.GetNextTurn();
