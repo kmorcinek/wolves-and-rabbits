@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.WolvesAndRabbits.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.WolvesAndRabbits.Measure", "DotNet8.WolvesAndRabbits.Measure\DotNet8.WolvesAndRabbits.Measure.csproj", "{5E40A479-EB0E-4C87-B801-48B257880CA5}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DotNet8.WolvesAndRabbits.FSharp", "DotNet8.WolvesAndRabbits.FSharp\DotNet8.WolvesAndRabbits.FSharp.fsproj", "{67F70AF0-868F-4299-9D71-B025823624FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{5E40A479-EB0E-4C87-B801-48B257880CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E40A479-EB0E-4C87-B801-48B257880CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E40A479-EB0E-4C87-B801-48B257880CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67F70AF0-868F-4299-9D71-B025823624FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F70AF0-868F-4299-9D71-B025823624FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F70AF0-868F-4299-9D71-B025823624FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F70AF0-868F-4299-9D71-B025823624FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
