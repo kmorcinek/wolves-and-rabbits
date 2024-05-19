@@ -1,31 +1,14 @@
 ﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-// $(document).ready(function() {
-//     $.ajax({
-//         url: '/api/next-game',
-//         type: 'GET',
-//         success: function(result) {
-//             console.log(result);
-//         },
-//         error: function(xhr, status, error) {
-//             console.error("Error: " + error);
-//         }
-//     });
-// });
-//
-
 // Write your JavaScript code.
 angular.module('app', [])
     .config(function () {
-        alert('ha')
     });
 
 angular.module('app').controller('MainCtrl',
     function ($scope) {
         $(function () {
-            // var fieldHub = $.connection.fieldHub;
-
             var getNextTurns = function (leftTurns) {
                 leftTurns -= 1;
 
@@ -33,8 +16,8 @@ angular.module('app').controller('MainCtrl',
                     $.ajax({
                         url: '/api/next-game',
                         type: 'GET',
-                        success: function (result) {
-                            console.log(result);
+                        success: function (nextTurn) {
+                            console.log(nextTurn);
                             $scope.$apply(function () {
                                 $scope.data = nextTurn.cellArrays;
                                 $scope.iterationCount = nextTurn.iterationCount;
@@ -44,8 +27,7 @@ angular.module('app').controller('MainCtrl',
                                 return;
                             }
 
-                            // getNextTurns(leftTurns);
-
+                            getNextTurns(leftTurns);
                         },
                         error: function (xhr, status, error) {
                             console.error("Error: " + error);
