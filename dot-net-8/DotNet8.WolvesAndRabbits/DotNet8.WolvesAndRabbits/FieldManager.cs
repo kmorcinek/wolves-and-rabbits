@@ -32,7 +32,7 @@ namespace KMorcinek.WolvesAndRabbits
             return new Fields
             {
                 Size = size,
-                IterationCount = 0,
+                IterationCount = 1,
                 Lettuces = lettuceField.Create(size),
                 Rabbits = rabbitPositions.Select(x => new Rabbit(x, 10)).ToList(),
                 Wolves = wolfPositions.Select(x => new Wolf(x, 35)).ToList(),
