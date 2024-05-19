@@ -35,15 +35,15 @@ angular.module('app').controller('MainCtrl',
                         type: 'GET',
                         success: function (result) {
                             console.log(result);
-                            // $scope.$apply(function () {
-                            //     $scope.data = nextTurn.cellArrays;
-                            //     $scope.iterationCount = nextTurn.iterationCount;
-                            // });
-                            //
-                            // if (leftTurns === 0) {
-                            //     return;
-                            // }
-                            //
+                            $scope.$apply(function () {
+                                $scope.data = nextTurn.cellArrays;
+                                $scope.iterationCount = nextTurn.iterationCount;
+                            });
+
+                            if (leftTurns === 0) {
+                                return;
+                            }
+
                             // getNextTurns(leftTurns);
 
                         },
