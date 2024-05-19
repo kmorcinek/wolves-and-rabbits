@@ -126,19 +126,19 @@ namespace KMorcinek.WolvesAndRabbits
             };
         }
 
-        public Fields GetNextTurn(Fields fieldManager)
+        public Fields GetNextTurn(Fields fields)
         {
-            IEnumerable<Lettuce> nextTurnLettuces = lettuceField.NextTurn(fieldManager.Lettuces);
+            IEnumerable<Lettuce> nextTurnLettuces = lettuceField.NextTurn(fields.Lettuces);
             Tuple<IEnumerable<Lettuce>, IEnumerable<Rabbit>> rabbitsNextTurn =
-                rabbitField.GetNextTurn(nextTurnLettuces, fieldManager.Rabbits);
+                rabbitField.GetNextTurn(nextTurnLettuces, fields.Rabbits);
 
             Tuple<IEnumerable<Rabbit>, IEnumerable<Wolf>> wolvesNextTurn =
-                wolfField.GetNextTurn(rabbitsNextTurn.Item2, fieldManager.Wolves);
+                wolfField.GetNextTurn(rabbitsNextTurn.Item2, fields.Wolves);
 
             return new Fields
             {
-                Size = fieldManager.Size,
-                IterationCount = fieldManager.IterationCount + 1,
+                Size = fields.Size,
+                IterationCount = fields.IterationCount + 1,
                 Lettuces = rabbitsNextTurn.Item1.ToList(),
                 Rabbits = wolvesNextTurn.Item1.ToList(),
                 Wolves = wolvesNextTurn.Item2.ToList(),
