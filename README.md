@@ -14,13 +14,18 @@ The case of [Cellular automaton] I guess is less efficient in functional approac
 
 Todos:
 
-- Some implementations from FieldBase (*AddNewBorns()*, *GetAlive()*, ...) should be probably moved to other class as static methods easy for testability. Not sure yet how to deal with inheritance.
-- Interface method *IFood Create(Position position, double food);* should be moved to a factory.
-- *NeighborhoodGenerator* should use Dictionary<Position, Positions[]>
+- Some implementations from FieldBase (_AddNewBorns()_, _GetAlive()_, ...) should be probably moved to other class as static methods easy for testability. Not sure yet how to deal with inheritance.
+- Interface method _IFood Create(Position position, double food);_ should be moved to a factory.
+- _NeighborhoodGenerator_ should use Dictionary<Position, Positions[]>
 
 ## F# version
 
 Later rewritten whole app to F#.
+
+## How I deploy it
+
+"Azure Exproler" -> Sign in from rider to azure by browser.
+Click on Web project -> Azure -> Choose "wolves-and-rabbits" app -> Run
 
 ## Demo
 
@@ -28,6 +33,5 @@ Later rewritten whole app to F#.
 
 [Web version of Wolves and rabbits]
 
-[Cellular automaton]:http://en.wikipedia.org/wiki/Cellular_automaton
-
-[Web version of Wolves and rabbits]:https://wolves-and-rabbits.azurewebsites.net/index.html
+[Cellular automaton]: http://en.wikipedia.org/wiki/Cellular_automaton
+[Web version of Wolves and rabbits]: https://wolves-and-rabbits.azurewebsites.net/index.html
