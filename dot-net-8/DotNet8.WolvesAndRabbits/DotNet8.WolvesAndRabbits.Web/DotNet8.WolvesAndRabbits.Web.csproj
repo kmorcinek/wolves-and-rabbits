@@ -6,4 +6,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\DotNet8.WolvesAndRabbits\DotNet8.WolvesAndRabbits.csproj" />
+    </ItemGroup>
+
 </Project>
