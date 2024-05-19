@@ -1,8 +1,4 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-angular.module('app', [])
+﻿angular.module('app', [])
     .config(function () {
     });
 
@@ -17,6 +13,7 @@ angular.module('app').controller('MainCtrl',
                         url: '/api/next-game',
                         type: 'GET',
                         success: function (nextTurn) {
+                            console.log('iterationCount', nextTurn.iterationCount);
                             console.log(nextTurn);
                             $scope.$apply(function () {
                                 $scope.data = nextTurn.cellArrays;
@@ -35,18 +32,15 @@ angular.module('app').controller('MainCtrl',
                         }
                     });
                 });
-
-                // fieldHub.server.getNextTurn().done(function (nextTurn) {
-                // });
             };
 
             var reset = function () {
-                fieldHub.server.reset(null).done(function (nextTurn) {
-                    $scope.$apply(function () {
-                        $scope.data = nextTurn.cellArrays;
-                        $scope.iterationCount = nextTurn.iterationCount;
-                    });
-                });
+                // fieldHub.server.reset(null).done(function (nextTurn) {
+                //     $scope.$apply(function () {
+                //         $scope.data = nextTurn.cellArrays;
+                //         $scope.iterationCount = nextTurn.iterationCount;
+                //     });
+                // });
             };
 
             // $.connection.hub.start()
@@ -65,12 +59,12 @@ angular.module('app').controller('MainCtrl',
             }
 
             $scope.resetConfiguration = function () {
-                fieldHub.server.reset($scope.configuration).done(function (nextTurn) {
-                    $scope.$apply(function () {
-                        $scope.data = nextTurn.cellArrays;
-                        $scope.iterationCount = nextTurn.iterationCount;
-                    });
-                });
+                // fieldHub.server.reset($scope.configuration).done(function (nextTurn) {
+                //     $scope.$apply(function () {
+                //         $scope.data = nextTurn.cellArrays;
+                //         $scope.iterationCount = nextTurn.iterationCount;
+                //     });
+                // });
             }
         });
     });

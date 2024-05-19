@@ -20,3 +20,49 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+td {
+  border-color: blue;
+  border-width: 1px;
+  border-style: solid;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+table {
+  border-spacing: 0;
+}
+
+.float {
+  float: left;
+}
+
+body {
+  padding-top: 25px;
+}
+
+fieldset {
+  padding: .35em .625em .75em;
+  margin: 0 2px;
+  border: 1px solid #c0c0c0;
+}
+
+legend {
+  width: auto;
+  border: none;
+  font-size: 18px;
+}
+@-moz-document url-prefix() {
+  legend {
+    padding-top:15px;
+  }
+}
+
+.inline-group input {
+  max-width: 150px;
+}
+
+.center-table {
+  margin: 0 auto;
+}
