@@ -7,9 +7,10 @@ namespace DotNet8.WolvesAndRabbits.Web.Controllers
     [Route("api/")]
     public class GameController : ControllerBase
     {
-        readonly IWolvesAdapter wolvesAdapter = new CsharpWolvesAdapter();
+        // Static so it is not reinstantiated at every API call, server has to keep the game state
+        static readonly IWolvesAdapter wolvesAdapter = new CsharpWolvesAdapter();
 
-        public GameController()
+        static GameController()
         {
             wolvesAdapter.Reset(null);
         }
