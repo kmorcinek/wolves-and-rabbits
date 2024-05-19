@@ -1,3 +1,4 @@
+using KMorcinek.WolvesAndRabbits.Web.Adapters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.WolvesAndRabbits.Web.Controllers
@@ -6,21 +7,17 @@ namespace DotNet8.WolvesAndRabbits.Web.Controllers
     [Route("api/")]
     public class GameController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        readonly IWolvesAdapter wolvesAdapter = new CsharpWolvesAdapter();
+
+        public GameController()
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+            wolvesAdapter.Reset(null);
+        }
 
         [HttpGet("next-game")]
-        public IEnumerable<WeatherForecast> Get()
+        public dynamic Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-                {
-                    Date = DateTime.Now.AddDays(index),
-                    TemperatureC = Random.Shared.Next(-20, 55),
-                    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-                })
-                .ToArray();
+            return wolvesAdapter.GetNextTurn();
         }
     }
 }
