@@ -13,8 +13,6 @@ angular.module('app').controller('MainCtrl',
                         url: '/api/next-game',
                         type: 'GET',
                         success: function (nextTurn) {
-                            console.log('iterationCount', nextTurn.iterationCount);
-                            console.log(nextTurn);
                             $scope.$apply(function () {
                                 $scope.data = nextTurn.cellArrays;
                                 $scope.iterationCount = nextTurn.iterationCount;
@@ -28,34 +26,35 @@ angular.module('app').controller('MainCtrl',
                         },
                         error: function (xhr, status, error) {
                             console.error("Error: " + error);
-                            alert("Error: " + error);
                         }
                     });
                 });
             };
 
             var reset = function () {
-                // fieldHub.server.reset(null).done(function (nextTurn) {
-                //     $scope.$apply(function () {
-                //         $scope.data = nextTurn.cellArrays;
-                //         $scope.iterationCount = nextTurn.iterationCount;
-                //     });
-                // });
+                $.ajax({
+                    url: '/api/reset-game',
+                    type: 'POST',
+                    success: function (nextTurn) {
+                        $scope.$apply(function () {
+                            $scope.data = nextTurn.cellArrays;
+                            $scope.iterationCount = nextTurn.iterationCount;
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Error: " + error);
+                    }
+                });
             };
 
-            // $.connection.hub.start()
-            //     .done(function () {
-            //         reset();
-            //
-            //         fieldHub.server.getConfiguration().done(function (configuration) {
-            //             $scope.$apply(function() {
-            //                 $scope.configuration = configuration;
-            //             });
-            //         });
-            //     });
+            reset();
 
             $scope.nextTurns = function (count) {
                 getNextTurns(count);
+            }
+
+            $scope.reset = function () {
+                reset()
             }
 
             $scope.resetConfiguration = function () {

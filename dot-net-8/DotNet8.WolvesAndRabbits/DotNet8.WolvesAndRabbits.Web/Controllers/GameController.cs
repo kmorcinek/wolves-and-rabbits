@@ -20,5 +20,11 @@ namespace DotNet8.WolvesAndRabbits.Web.Controllers
         {
             return wolvesAdapter.GetNextTurn();
         }
+
+        [HttpPost("reset-game")]
+        public dynamic ResetGame()
+        {
+            return wolvesAdapter.Reset(null);
+        }
     }
 }
