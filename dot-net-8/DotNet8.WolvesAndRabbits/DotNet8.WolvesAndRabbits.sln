@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.WolvesAndRabbits.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.WolvesAndRabbits.Web", "DotNet8.WolvesAndRabbits.Web\DotNet8.WolvesAndRabbits.Web.csproj", "{FACF8105-AF4F-4E44-8668-FBAF39416C24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.WolvesAndRabbits.Measure", "DotNet8.WolvesAndRabbits.Measure\DotNet8.WolvesAndRabbits.Measure.csproj", "{5E40A479-EB0E-4C87-B801-48B257880CA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{FACF8105-AF4F-4E44-8668-FBAF39416C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FACF8105-AF4F-4E44-8668-FBAF39416C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FACF8105-AF4F-4E44-8668-FBAF39416C24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E40A479-EB0E-4C87-B801-48B257880CA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E40A479-EB0E-4C87-B801-48B257880CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E40A479-EB0E-4C87-B801-48B257880CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E40A479-EB0E-4C87-B801-48B257880CA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
